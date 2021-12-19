@@ -12,6 +12,7 @@ module.exports = ({ env }) => ({
         password: env('DATABASE_PASSWORD', 'postgres'),
         ssl: {
           // For self-signed certificates
+          // Needed for Heroku deploy
           rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
         },
       },
