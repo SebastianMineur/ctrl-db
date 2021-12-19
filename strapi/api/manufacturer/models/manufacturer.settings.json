@@ -14,6 +14,18 @@
   "attributes": {
     "name": {
       "type": "string"
+    },
+    "devices": {
+      "via": "manufacturer",
+      "collection": "device"
+    },
+    "comments": {
+      "collection": "comment"
+    },
+    "user": {
+      "via": "manufacturers",
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

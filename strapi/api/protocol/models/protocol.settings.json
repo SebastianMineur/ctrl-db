@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "devices",
+  "collectionName": "protocols",
   "info": {
-    "name": "Device",
+    "name": "Protocol",
     "description": ""
   },
   "options": {
@@ -12,29 +12,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "model": {
-      "type": "string"
+    "name": {
+      "type": "string",
+      "required": true
     },
     "type": {
       "type": "enumeration",
       "enum": [
-        "Projector",
-        "Display"
-      ]
+        "RS_232",
+        "RS_485",
+        "TCP_IP",
+        "UDP"
+      ],
+      "default": "RS_232",
+      "required": true
     },
-    "protocols": {
-      "via": "device",
-      "collection": "protocol"
+    "commands": {
+      "via": "protocol",
+      "collection": "command"
     },
-    "manufacturer": {
-      "via": "devices",
-      "model": "manufacturer"
+    "device": {
+      "via": "protocols",
+      "model": "device"
     },
     "comments": {
       "collection": "comment"
     },
     "user": {
-      "via": "devices",
+      "via": "protocols",
       "plugin": "users-permissions",
       "model": "user"
     }
