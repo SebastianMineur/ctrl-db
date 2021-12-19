@@ -10,11 +10,13 @@ module.exports = ({ env }) => ({
         database: env('DATABASE_NAME', 'strapi'),
         username: env('DATABASE_USERNAME', 'postgres'),
         password: env('DATABASE_PASSWORD', 'postgres'),
-        ssl: {
-          // For self-signed certificates
-          // Needed for Heroku deploy
-          rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
-        },
+        ssl: env.bool('DATABASE_SSL_ENABLE', false)
+          ? {
+            // For self-signed certificates
+            // Needed for Heroku deploy
+            rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
+          }
+          : false,
       },
       options: {}
     },
