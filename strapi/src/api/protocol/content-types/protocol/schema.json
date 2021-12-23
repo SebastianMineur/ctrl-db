@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "protocols",
+  "info": {
+    "singularName": "protocol",
+    "pluralName": "protocols",
+    "displayName": "Protocol"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "RS232",
+        "RS485",
+        "TCPIP",
+        "UDP",
+        "TRIG12V",
+        "CONTACT"
+      ]
+    },
+    "device": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::device.device",
+      "inversedBy": "protocols"
+    },
+    "commands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::command.command",
+      "mappedBy": "protocol"
+    }
+  }
+}

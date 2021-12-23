@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "devices",
+  "info": {
+    "singularName": "device",
+    "pluralName": "devices",
+    "displayName": "Device"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "model": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Projector",
+        "Display",
+        "DSP",
+        "Matrix"
+      ]
+    },
+    "manufacturer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::manufacturer.manufacturer",
+      "inversedBy": "devices"
+    },
+    "protocols": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::protocol.protocol",
+      "mappedBy": "device"
+    }
+  }
+}
