@@ -17,4 +17,13 @@ services:
     depends_on:
       - postgres
     user: 1000:1000
-    # command: sleep infinity
+
+  frontend:
+    image: node:14
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    user: 1000:1000
+    command: bash -c "npm i && npm run dev"
