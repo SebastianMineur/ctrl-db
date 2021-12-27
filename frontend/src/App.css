@@ -1,6 +1,7 @@
 .App {
     height: 100vh;
     overflow-y: hidden;
+    background: #f0f0f0;
 
     display: flex;
     flex-direction: column;
@@ -17,6 +18,6 @@
 .App footer {
     margin-top: auto;
     padding: 1em;
-    background: #e0e0e0;
+    background: #ffffff;
     text-align: center;
 }

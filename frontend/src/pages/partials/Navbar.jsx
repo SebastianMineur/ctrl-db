@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
-import "./Navbar.css"
 
 const Navbar = () => {
     return (
-        <header className="Navbar">
-            <h1 className="logo">Ctrl DB</h1>
+        <header className="bg-white shadow-lg p-1">
+            <div className="container-lg flex align-center justify-between">
+                <h1 className="font-lg m-0">Ctrl DB</h1>
 
-            <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="about">About</NavLink>
-            </nav>
+                <nav className="flex gap-1">
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="about">About</NavLink>
+                </nav>
+            </div>
         </header>
     );
 }

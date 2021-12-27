@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./pages/partials/Navbar"
 import './App.css'
+import './util.css'
 
 function App() {
 
