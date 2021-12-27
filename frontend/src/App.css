@@ -1,0 +1,32 @@
+.App {
+    height: 100vh;
+    overflow-y: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.App header {
+    box-shadow: 0 2px 8px #0004;
+    padding: 1em;
+}
+
+.App .logo {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.App main {
+    flex-grow: 1;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.App footer {
+    margin-top: auto;
+    padding: 1em;
+    background: #e0e0e0;
+    text-align: center;
+}
