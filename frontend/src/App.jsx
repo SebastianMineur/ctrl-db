@@ -1,17 +1,18 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./pages/partials/Navbar"
 import './App.css'
 
 function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1 className="logo">Ctrl DB</h1>
-
-        <nav></nav>
-      </header>
+      <Navbar />
       
       <main>
-        <h2>App</h2>
+        <Routes>
+          <Route path="/" element={<h2>Home</h2>} />
+          <Route path="about" element={<h2>About</h2>} />
+        </Routes>
 
         <footer>
           &copy; 2021 Sebastian Mineur

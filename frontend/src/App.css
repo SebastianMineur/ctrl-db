@@ -6,16 +6,6 @@
     flex-direction: column;
 }
 
-.App header {
-    box-shadow: 0 2px 8px #0004;
-    padding: 1em;
-}
-
-.App .logo {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
 .App main {
     flex-grow: 1;
     overflow-y: auto;
