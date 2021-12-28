@@ -1,45 +1,45 @@
 :root {
-    --gap: 10px;
-    --border-radius: 8px;
+  --gap: 10px;
+  --border-radius: 8px;
 
-    --color-primary: 97deg 52% 63%;
-    --color-white: 0 0% 100%;
-    --color-light: 0 0% 40%;
-    --color-dark: 0 0% 20%;
-    --color-danger: 22 100% 35%;
+  --color-primary: 97deg 52% 63%;
+  --color-white: 0 0% 100%;
+  --color-light: 0 0% 40%;
+  --color-dark: 0 0% 20%;
+  --color-danger: 22 100% 35%;
 
-    --color-bg: 200deg 12% 95%;
-    --color-bg-light: 201 12% 88%;
-    --color-bg-dark: 201 20% 80%;
-    --color-bg-danger: 4 100% 90%;
-    --color-bg-warning: 40 95% 80%;
-    --color-bg-success: 97 52% 63%;
+  --color-bg: 200deg 12% 95%;
+  --color-bg-light: 201 12% 88%;
+  --color-bg-dark: 201 20% 80%;
+  --color-bg-danger: 4 100% 90%;
+  --color-bg-warning: 40 95% 80%;
+  --color-bg-success: 97 52% 63%;
 
-    --shadow-sm: 0 1px 0px 0 hsl(0deg 0% 0% / .33), 0 0 2px hsl(0deg 0% 0% / .125);
-    --shadow-md: 0 1px 0px 0 hsl(0deg 0% 0% / .1), 0 1px 4px hsl(0deg 0% 0% / .25);
-    --shadow-lg: 0 2px 6px 0 hsl(0deg 0% 0% / .2);
+  --shadow-sm: 0 1px 0px 0 hsl(0deg 0% 0% / .33), 0 0 2px hsl(0deg 0% 0% / .125);
+  --shadow-md: 0 1px 0px 0 hsl(0deg 0% 0% / .1), 0 1px 4px hsl(0deg 0% 0% / .25);
+  --shadow-lg: 0 2px 6px 0 hsl(0deg 0% 0% / .2);
 
-    --font-sans: sans-serif;
-    --font-serif: serif;
-    --font-mono: monospace;
+  --font-sans: sans-serif;
+  --font-serif: serif;
+  --font-mono: monospace;
 
-    --font-xs: 14px;
-    --font-sm: 16px;
-    --font-md: 20px;
-    --font-lg: 24px;
-    --font-xl: 28px;
+  --font-xs: 14px;
+  --font-sm: 16px;
+  --font-md: 20px;
+  --font-lg: 24px;
+  --font-xl: 28px;
 
-    --font-thin: 300;
-    --font-normal: 400;
-    --font-bold: 600;
+  --font-thin: 300;
+  --font-normal: 400;
+  --font-bold: 600;
 
-    --focus-outline: 4px solid hsl(var(--color-primary) / 0.6);
+  --focus-outline: 4px solid hsl(var(--color-primary) / 0.6);
 }
 
 .list-reset {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 /* Layout */
