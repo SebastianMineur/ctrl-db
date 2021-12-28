@@ -172,6 +172,7 @@
 .bg-primary { background-color: hsl(var(--color-primary)); }
 .bg-color { background-color: hsl(var(--color-bg)); }
 .bg-white { background-color: hsl(var(--color-white)); }
+.bg-light { background-color: hsl(var(--color-bg-light)); }
 .bg-dark { background-color: hsl(var(--color-bg-dark)); }
 .bg-danger { background-color: hsl(var(--color-bg-danger)); }
 .bg-warning { background-color: hsl(var(--color-bg-warning)); }
