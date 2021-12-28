@@ -34,6 +34,8 @@
   --font-bold: 600;
 
   --focus-outline: 4px solid hsl(var(--color-primary) / 0.6);
+
+  --border: 1px solid hsl(0, 0%, 75%);
 }
 
 .list-reset {
@@ -208,3 +210,11 @@
 .container-lg {
   max-width: 800px;
 }
+
+.b-1 { border:          var(--border); }
+.bt-1 { border-top:     var(--border); }
+.bb-1 { border-bottom:  var(--border); }
+.bl-1 { border-left:    var(--border); }
+.br-1 { border-right:   var(--border); }
+.bx-1 { border-left:    var(--border); border-right:     var(--border); }
+.by-1 { border-top:     var(--border); border-bottom:    var(--border); }
