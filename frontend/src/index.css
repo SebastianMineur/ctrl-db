@@ -45,3 +45,9 @@ button {
 button:focus-visible {
   outline: var(--focus-outline);
 }
+
+hr {
+  border: none;
+  height: 1px;
+  background: hsl(var(--color-border));
+}
