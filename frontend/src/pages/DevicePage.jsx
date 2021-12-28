@@ -1,30 +1,48 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { getManufacturers } from "../services/strapi";
+
 const DevicePage = () => {
+  const [manufacturer, setManufacturer] = useState();
+  const [manufacturers, setManufacturers] = useState();
+
+  useEffect(async () => {
+    setManufacturers(await getManufacturers());
+  }, []);
+
   return (
     <div className="container-lg">
       <h2 className="font-xl mt-1 mb-0">Create new device</h2>
       <p className="mt-0">
-        A device is any product that can receive control commands.
+        A device can be any piece of hardware capable of receiving control
+        commands.
       </p>
 
       <hr />
 
       <div className="flex column gap-05">
-        <label>Model code</label>
+        <label>Model</label>
         <input className="bg-white mb-1" />
       </div>
 
       <div className="flex column gap-05">
-        <label>Device name</label>
+        <label>Descriptive name</label>
         <input className="bg-white mb-1" />
       </div>
 
       <div className="flex column gap-05">
         <label>Manufacturer</label>
-        <select className="bg-white mb-1">
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-          <option>Option 4</option>
+        <select
+          value={manufacturer ? manufacturer : ""}
+          onChange={(e) => {
+            setManufacturer(e.target.value);
+          }}
+          className="bg-white mb-1"
+        >
+          <option value="" disabled></option>
+          {manufacturers?.map((m) => (
+            <option key={m.id}>{m.name}</option>
+          ))}
         </select>
       </div>
 
