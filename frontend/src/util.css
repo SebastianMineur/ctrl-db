@@ -214,3 +214,5 @@
 .br-1 { border-right: var(--border); }
 .bx-1 { border-left: var(--border); border-right: var(--border); }
 .by-1 { border-top: var(--border); border-bottom: var(--border); }
+
+.b-1,.bt-1, .bb-1, .bl-1, .br-1, .bx-1, .by-1 { border-color: currentColor; }

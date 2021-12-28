@@ -15,8 +15,8 @@ code {
 input,
 select {
   font-size: 1rem;
-  border: none;
   padding: 0.5em 0.25em;
+  border: var(--border);
   border-radius: 0.25em;
   background: #f0f0f0;
 }
@@ -40,6 +40,7 @@ button {
   border: none;
   border-radius: 0.25em;
   background: none;
+  cursor: pointer;
 }
 
 button:focus-visible {

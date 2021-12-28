@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { getManufacturers } from "../services/strapi";
+import Button from "../components/Button";
 
 const DevicePage = () => {
   const [manufacturer, setManufacturer] = useState();
@@ -59,8 +60,12 @@ const DevicePage = () => {
       <hr className="my-2" />
 
       <div className="flex justify-center gap-1">
-        <button className="">Cancel</button>
-        <button className="bg-primary">Submit</button>
+        <Button variant="outline" className="col-danger">
+          Cancel
+        </Button>
+        <Button variant="filled" className="bg-primary">
+          Submit
+        </Button>
       </div>
     </div>
   );
