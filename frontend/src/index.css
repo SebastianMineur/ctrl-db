@@ -38,3 +38,11 @@ hr {
   border: none;
   background: hsl(var(--color-border));
 }
+
+a {
+  color: hsl(var(--color-primary));
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
