@@ -1,14 +1,14 @@
-const variants = {
-  none: "bg-none",
-  filled: "col-black",
-  outline: "b-1",
-};
+import "./Button.css";
 
 const Button = (props) => {
-  const variant = props.variant || "none";
+  const variant = props.variant;
 
   return (
-    <button className={`${props.className} ${variants[variant]}`}>
+    <button
+      className={`Button ${props.className}`}
+      data-variant={variant}
+      onClick={props.onClick}
+    >
       {props.children}
     </button>
   );
