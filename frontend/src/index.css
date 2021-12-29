@@ -33,7 +33,8 @@ label {
 }
 
 hr {
-  border: none;
+  width: 100%;
   height: 1px;
+  border: none;
   background: hsl(var(--color-border));
 }

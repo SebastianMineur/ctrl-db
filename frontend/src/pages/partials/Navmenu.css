@@ -4,7 +4,8 @@
   top: calc(100% - var(--gap));
 }
 
-.Navmenu .Navlink {
+.Navmenu a,
+.Navmenu button {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,4 +14,10 @@
   font-size: 1.2em;
   font-weight: bold;
   text-decoration: none;
+}
+
+.Navmenu hr {
+  margin-block: 0;
+  margin-inline: calc(var(--gap) * -1);
+  width: calc(var(--gap) * 2 + 100%);
 }
