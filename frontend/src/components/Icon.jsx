@@ -1,4 +1,4 @@
-import "./Icon";
+import "./Icon.css";
 
 const Icon = ({ icon, size = "1em" }) => {
   return (
