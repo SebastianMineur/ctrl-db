@@ -129,8 +129,6 @@ const request = async (req, vars) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQwNjkwNTMyLCJleHAiOjE2NDMyODI1MzJ9.3SSc3riKuJJBajaY9cEI5HHGcHO1JEASlf3sG4lD3pM",
     },
     body: JSON.stringify({
       query: req.query,
