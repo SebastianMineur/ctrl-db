@@ -63,7 +63,7 @@ const DevicePage = () => {
         <Button variant="outline" className="col-danger">
           Cancel
         </Button>
-        <Button variant="filled" className="bg-primary">
+        <Button variant="filled" className="col-white bg-primary">
           Submit
         </Button>
       </div>
