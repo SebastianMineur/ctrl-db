@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./pages/partials/Navbar";
 import HomePage from "./pages/HomePage";
+import NewDevicePage from "./pages/NewDevicePage";
 import DevicePage from "./pages/DevicePage";
 import LoginPage from "./pages/LoginPage";
 import "./App.css";
@@ -14,7 +15,8 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="device" element={<DevicePage />} />
+          <Route path="device" element={<NewDevicePage />} />
+          <Route path="device/:id" element={<DevicePage />} />
           <Route path="login" element={<LoginPage />} />
         </Routes>
 
