@@ -84,6 +84,46 @@ const loginRequest = {
   },
 };
 
+const searchRequest = {
+  query: `query SearchDevices($search: String!) {
+    devices(filters: {
+      or: [
+        { model: { containsi: $search } },
+        { type: { containsi: $search } },
+        { manufacturer: { name: { containsi: $search } } }
+      ]
+    }) {
+      data {
+        id
+        attributes {
+          model
+          type
+          manufacturer {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }`,
+  unwrap: (data) =>
+    data.data.devices.data.map((device) => {
+      const manufacturer = device.attributes.manufacturer.data;
+      return {
+        id: device.id,
+        ...device.attributes,
+        manufacturer: {
+          id: manufacturer.id,
+          ...manufacturer.attributes,
+        },
+      };
+    }),
+};
+
 const request = async (req, vars) => {
   const response = await fetch(baseUrl, {
     method: "POST",
@@ -115,4 +155,8 @@ export const getDevices = async () => {
 
 export const login = async (email, password) => {
   return await request(loginRequest, { email, password });
+};
+
+export const search = async (search) => {
+  return await request(searchRequest, { search });
 };
