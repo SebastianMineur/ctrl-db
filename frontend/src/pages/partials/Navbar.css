@@ -1,4 +1,5 @@
 .Navbar {
+  position: relative;
   background: #24292f;
   color: white;
 }
