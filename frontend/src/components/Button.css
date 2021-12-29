@@ -21,6 +21,10 @@
   outline-color: currentColor;
 }
 
+.Button[data-variant="filled"] {
+  color: white;
+}
+
 .Button[data-variant="outline"] {
   border: 1px solid currentColor;
 }

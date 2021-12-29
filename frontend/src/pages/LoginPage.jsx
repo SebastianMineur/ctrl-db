@@ -63,7 +63,7 @@ const LoginPage = () => {
         )}
 
         <div className="flex column align-center mt-1">
-          <Button variant="filled" className="col-white bg-primary mb-05">
+          <Button variant="filled" color="primary" className="mb-05">
             Log in
           </Button>
 

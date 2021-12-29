@@ -60,10 +60,10 @@ const DevicePage = () => {
       <hr className="my-2" />
 
       <div className="flex justify-center gap-1">
-        <Button variant="outline" className="col-danger">
+        <Button variant="outline" color="danger">
           Cancel
         </Button>
-        <Button variant="filled" className="col-white bg-primary">
+        <Button variant="filled" color="primary">
           Submit
         </Button>
       </div>
