@@ -5,7 +5,7 @@ const schema = {
     requests: {
       getAll: {
         query: "{ manufacturers { data { id, attributes { name } } } }",
-        process: (data) =>
+        unwrap: (data) =>
           data.data.manufacturers.data.map((manufacturer) => {
             return { id: manufacturer.id, ...manufacturer.attributes };
           }),
@@ -34,7 +34,7 @@ const schema = {
             }
           }
         }`,
-        process: (data) => {
+        unwrap: (data) => {
           const device = data.data.device.data;
           const manufacturer = device.attributes.manufacturer.data;
           return {
@@ -50,7 +50,7 @@ const schema = {
       getAll: {
         query:
           "{ devices { data { id, attributes { model, type, manufacturer { data { id, attributes { name } } } } } } }",
-        process: (data) =>
+        unwrap: (data) =>
           data.data.devices.data.map((device) => {
             const manufacturer = device.attributes.manufacturer.data;
             return {
@@ -64,6 +64,23 @@ const schema = {
           }),
       },
     },
+  },
+};
+
+const loginRequest = {
+  query: `mutation Login($email: String!, $password: String!) {
+    login(input: {
+      identifier: $email,
+      password: $password
+    }) {
+      jwt
+      user {
+        id, username, email
+      }
+    }
+  }`,
+  unwrap(data) {
+    return data;
   },
 };
 
@@ -81,7 +98,7 @@ const request = async (req, vars) => {
     }),
   });
   const data = await response.json();
-  return req.process(data);
+  return req.unwrap(data);
 };
 
 export const getManufacturers = async () => {
@@ -94,4 +111,8 @@ export const getDevice = async (id) => {
 
 export const getDevices = async () => {
   return await request(schema.devices.requests.getAll);
+};
+
+export const login = async (email, password) => {
+  return await request(loginRequest, { email, password });
 };
