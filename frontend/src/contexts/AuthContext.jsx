@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import * as strapi from "../services/strapi";
+import { useEffect } from "react/cjs/react.development";
+import { useLoginMutation } from "../hooks/useLoginMutation";
 
 const AuthContext = createContext();
 
@@ -9,24 +10,29 @@ const useAuthContext = () => {
 
 const AuthContextProvider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [jwt, setJwt] = useState(null);
+  const [loginMutation] = useLoginMutation();
+
+  useEffect(() => {
+    setCurrentUser(JSON.parse(localStorage.getItem("user")));
+  }, []);
 
   const login = async (email, password) => {
-    let response;
     try {
-      response = await strapi.login(email, password);
-      if (response.errors) throw new Error(response.errors[0].message);
+      const response = await loginMutation({
+        variables: { email, password },
+      });
+      setCurrentUser(response.user);
+      localStorage.setItem("user", JSON.stringify(response.user));
+      localStorage.setItem("jwt", response.jwt);
     } catch (error) {
-      console.error(error);
       throw error;
     }
-    setCurrentUser(response.data.login.user);
-    setJwt(response.data.login.jwt);
   };
 
   const logout = () => {
     setCurrentUser(null);
-    setJwt(null);
+    localStorage.removeItem("user");
+    localStorage.removeItem("jwt");
   };
 
   const values = {

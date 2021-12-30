@@ -1,27 +1,23 @@
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { search } from "../services/strapi";
 import "./HomePage.css";
+import { useSearchQuery } from "../hooks/useSearchQuery";
 
 const HomePage = () => {
   const searchRef = useRef();
-  const [searchString, setSearchString] = useState();
-  const [results, setResults] = useState();
+  const [searchString, setSearchString] = useState("");
+  const {
+    data: results,
+    loading,
+    error,
+  } = useSearchQuery({ variables: { search: searchString } });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (searchRef.current.value === "") {
-      return;
-    }
+    if (searchRef.current.value === "") return;
 
-    try {
-      const response = await search(searchRef.current.value);
-      setSearchString(searchRef.current.value);
-      setResults(response);
-    } catch (error) {
-      throw error;
-    }
+    setSearchString(searchRef.current.value);
   };
 
   return (

@@ -5,13 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import AuthContext from "./contexts/AuthContext";
+import ApolloContext from "./contexts/ApolloContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthContext>
-        <App />
-      </AuthContext>
+      <ApolloContext>
+        <AuthContext>
+          <App />
+        </AuthContext>
+      </ApolloContext>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

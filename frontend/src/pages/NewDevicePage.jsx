@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getManufacturers } from "../services/strapi";
+// import { getManufacturers } from "../services/strapi";
 import Button from "../components/Button";
 
 const NewDevicePage = () => {
@@ -8,7 +8,7 @@ const NewDevicePage = () => {
   const [manufacturers, setManufacturers] = useState();
 
   useEffect(async () => {
-    setManufacturers(await getManufacturers());
+    // setManufacturers(await getManufacturers());
   }, []);
 
   return (
