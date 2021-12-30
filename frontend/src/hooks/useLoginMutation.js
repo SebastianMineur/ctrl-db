@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation, gql } from "@apollo/client";
 
 const query = gql`
@@ -24,14 +24,15 @@ export const useLoginMutation = () => {
   const mutate = async (options) => {
     try {
       const response = await originalMutation(options);
-      const unwrapped = unwrap(response);
-      setData(unwrapped);
-      return unwrapped;
+      return unwrap(response);
     } catch (error) {
-      setData(null);
       throw error;
     }
   };
+
+  useEffect(() => {
+    setData(results.data ? unwrap(results.data) : null);
+  }, [results.data]);
 
   return [mutate, { ...results, data }];
 };

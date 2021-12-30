@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 
 const SEARCH = gql`
@@ -46,22 +46,21 @@ const unwrap = (data) => {
 };
 
 export const useSearchQuery = (options) => {
-  const originalOnCompleted = options.onCompleted;
-  const originalOnError = options.onError;
+  const onCompleted = options.onCompleted;
   const [data, setData] = useState();
 
   const results = useQuery(SEARCH, {
     ...options,
     onCompleted(data) {
-      const unwrapped = unwrap(data);
-      setData(unwrapped);
-      if (originalOnCompleted) originalOnCompleted(unwrapped);
-    },
-    onError(error) {
-      setData(null);
-      if (originalOnError) originalOnError(error);
+      if (onCompleted) {
+        onCompleted(unwrap(data));
+      }
     },
   });
+
+  useEffect(() => {
+    setData(results.data ? unwrap(results.data) : null);
+  }, [results.data]);
 
   return { ...results, data };
 };
