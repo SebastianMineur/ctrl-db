@@ -16,16 +16,12 @@ const AuthContextProvider = (props) => {
   }, []);
 
   const login = async (email, password) => {
-    try {
-      const response = await loginMutation({
-        variables: { email, password },
-      });
-      setCurrentUser(response.user);
-      localStorage.setItem("user", JSON.stringify(response.user));
-      localStorage.setItem("jwt", response.jwt);
-    } catch (error) {
-      throw error;
-    }
+    const response = await loginMutation({
+      variables: { email, password },
+    });
+    setCurrentUser(response.user);
+    localStorage.setItem("user", JSON.stringify(response.user));
+    localStorage.setItem("jwt", response.jwt);
   };
 
   const logout = () => {
