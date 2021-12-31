@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext } from "react";
 import { useLoginMutation } from "../hooks/useLoginMutation";
+import { useWhoamiQuery } from "../hooks/useWhoamiQuery";
 
 const AuthContext = createContext();
 
@@ -8,26 +9,20 @@ const useAuthContext = () => {
 };
 
 const AuthContextProvider = (props) => {
-  const [currentUser, setCurrentUser] = useState(null);
   const [loginMutation] = useLoginMutation();
-
-  useEffect(() => {
-    setCurrentUser(JSON.parse(localStorage.getItem("user")));
-  }, []);
+  const { data: currentUser, refetch: updateUser } = useWhoamiQuery();
 
   const login = async (email, password) => {
     const response = await loginMutation({
       variables: { email, password },
     });
-    setCurrentUser(response.user);
-    localStorage.setItem("user", JSON.stringify(response.user));
     localStorage.setItem("jwt", response.jwt);
+    updateUser();
   };
 
   const logout = () => {
-    setCurrentUser(null);
-    localStorage.removeItem("user");
     localStorage.removeItem("jwt");
+    updateUser();
   };
 
   const values = {
