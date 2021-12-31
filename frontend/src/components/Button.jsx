@@ -1,42 +1,29 @@
 import "./Button.css";
 
 const variants = {
-  none: () => {
-    return {};
-  },
-  filled: (color) => {
-    return {
-      background: color,
-      outlineColor: color,
-    };
-  },
-  outline: (color) => {
-    return {
-      color: color,
-      borderColor: color,
-      outlineColor: color,
-    };
-  },
+  none: "none",
+  filled: "filled",
+  outline: "outline",
 };
 
 const colors = {
-  primary: "hsl(var(--color-primary))",
-  success: "hsl(var(--color-success))",
-  danger: "hsl(var(--color-danger))",
-  light: "hsl(var(--color-light))",
-  dark: "hsl(var(--color-dark))",
+  primary: "var(--color-primary)",
+  success: "var(--color-success)",
+  danger: "var(--color-danger)",
+  light: "var(--color-light)",
+  dark: "var(--color-dark)",
 };
 
 const Button = (props) => {
-  const variant = props.variant ?? "none";
-  const color = colors[props.color || "primary"];
+  const variant = variants[props.variant ?? "none"];
+  const color = colors[props.color ?? "primary"];
 
   return (
     <button
       className={`Button ${props.className}`}
       data-variant={variant}
       onClick={props.onClick}
-      style={variants[variant](color)}
+      style={{ "--color": color }}
     >
       {props.children}
     </button>

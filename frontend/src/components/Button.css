@@ -4,6 +4,7 @@
   padding: 0;
   border: none;
   cursor: pointer;
+  transition: outline 0.1s;
 }
 
 .Button:not([data-variant="filled"]):not([data-variant="outline"]) {
@@ -18,13 +19,24 @@
 .Button[data-variant="filled"]:focus-visible,
 .Button[data-variant="outline"]:focus-visible {
   outline: var(--focus-outline);
-  outline-color: currentColor;
+  outline-color: hsl(var(--color) / 0.5);
 }
 
 .Button[data-variant="filled"] {
+  background: hsl(var(--color));
+  outline-color: hsl(var(--color) / 0.5);
   color: white;
+}
+.Button[data-variant="filled"]:hover {
+  background: hsl(var(--color) / 0.7);
 }
 
 .Button[data-variant="outline"] {
-  border: 1px solid currentColor;
+  border: 1px solid hsl(var(--color));
+  color: hsl(var(--color));
+  border-color: hsl(var(--color));
+  outline-color: hsl(var(--color));
+}
+.Button[data-variant="outline"]:hover {
+  background: hsl(var(--color) / 0.15);
 }
