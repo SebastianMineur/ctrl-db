@@ -18,7 +18,7 @@ const LoginPage = () => {
       await auth.login(emailRef.current.value, passwordRef.current.value);
     } catch (error) {
       setError("Unknown email or password");
-      return;
+      throw error;
     }
     navigate("/");
   };
