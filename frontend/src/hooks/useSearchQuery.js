@@ -8,7 +8,7 @@ const SEARCH = gql`
         or: [
           { model: { containsi: $search } }
           { type: { containsi: $search } }
-          { manufacturer: { name: { containsi: $search } } }
+          { brand: { name: { containsi: $search } } }
         ]
       }
     ) {
@@ -17,7 +17,7 @@ const SEARCH = gql`
         attributes {
           model
           type
-          manufacturer {
+          brand {
             data {
               id
               attributes {
@@ -33,13 +33,13 @@ const SEARCH = gql`
 
 const unwrap = (data) => {
   return data.devices.data.map((device) => {
-    const manufacturer = device.attributes.manufacturer.data;
+    const brand = device.attributes.brand.data;
     return {
       id: device.id,
       ...device.attributes,
-      manufacturer: {
-        id: manufacturer.id,
-        ...manufacturer.attributes,
+      brand: {
+        id: brand.id,
+        ...brand.attributes,
       },
     };
   });

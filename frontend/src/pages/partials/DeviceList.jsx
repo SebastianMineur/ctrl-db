@@ -11,7 +11,7 @@ const DeviceList = ({ devices }) => {
             </Link>
             <p className="m-0">{device.type}</p>
           </div>
-          <p className="m-0">{device.manufacturer.name}</p>
+          <p className="m-0">{device.brand.name}</p>
         </div>
       ))}
     </div>

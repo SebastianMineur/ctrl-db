@@ -15,7 +15,7 @@ const SearchForm = ({ onSearch }) => {
       <input
         ref={searchRef}
         className="bg-white"
-        placeholder="Model, manufacturer or type..."
+        placeholder="Model, brand or type..."
       />
 
       <div className="flex justify-center align-center gap-1">
@@ -33,7 +33,7 @@ const SearchForm = ({ onSearch }) => {
 
         <select className="bg-white">
           <option value="" disabled>
-            Manufacturer
+            Brand
           </option>
           <option>Option 1</option>
           <option>Option 2</option>

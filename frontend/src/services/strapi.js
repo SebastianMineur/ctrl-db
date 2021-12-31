@@ -1,13 +1,13 @@
 const baseUrl = `//${import.meta.env.VITE_API_URL}`;
 
 const schema = {
-  manufacturers: {
+  brands: {
     requests: {
       getAll: {
-        query: "{ manufacturers { data { id, attributes { name } } } }",
+        query: "{ brands { data { id, attributes { name } } } }",
         unwrap: (data) =>
-          data.data.manufacturers.data.map((manufacturer) => {
-            return { id: manufacturer.id, ...manufacturer.attributes };
+          data.data.brands.data.map((brand) => {
+            return { id: brand.id, ...brand.attributes };
           }),
       },
     },
@@ -22,7 +22,7 @@ const schema = {
               attributes {
                 model,
                 type,
-                manufacturer {
+                brand {
                   data {
                     id,
                     attributes {
@@ -36,29 +36,29 @@ const schema = {
         }`,
         unwrap: (data) => {
           const device = data.data.device.data;
-          const manufacturer = device.attributes.manufacturer.data;
+          const brand = device.attributes.brand.data;
           return {
             id: device.id,
             ...device.attributes,
-            manufacturer: {
-              id: manufacturer.id,
-              ...manufacturer.attributes,
+            brand: {
+              id: brand.id,
+              ...brand.attributes,
             },
           };
         },
       },
       getAll: {
         query:
-          "{ devices { data { id, attributes { model, type, manufacturer { data { id, attributes { name } } } } } } }",
+          "{ devices { data { id, attributes { model, type, brand { data { id, attributes { name } } } } } } }",
         unwrap: (data) =>
           data.data.devices.data.map((device) => {
-            const manufacturer = device.attributes.manufacturer.data;
+            const brand = device.attributes.brand.data;
             return {
               id: device.id,
               ...device.attributes,
-              manufacturer: {
-                id: manufacturer.id,
-                ...manufacturer.attributes,
+              brand: {
+                id: brand.id,
+                ...brand.attributes,
               },
             };
           }),
@@ -90,7 +90,7 @@ const searchRequest = {
       or: [
         { model: { containsi: $search } },
         { type: { containsi: $search } },
-        { manufacturer: { name: { containsi: $search } } }
+        { brand: { name: { containsi: $search } } }
       ]
     }) {
       data {
@@ -98,7 +98,7 @@ const searchRequest = {
         attributes {
           model
           type
-          manufacturer {
+          brand {
             data {
               id
               attributes {
@@ -112,13 +112,13 @@ const searchRequest = {
   }`,
   unwrap: (data) =>
     data.data.devices.data.map((device) => {
-      const manufacturer = device.attributes.manufacturer.data;
+      const brand = device.attributes.brand.data;
       return {
         id: device.id,
         ...device.attributes,
-        manufacturer: {
-          id: manufacturer.id,
-          ...manufacturer.attributes,
+        brand: {
+          id: brand.id,
+          ...brand.attributes,
         },
       };
     }),
@@ -139,8 +139,8 @@ const request = async (req, vars) => {
   return req.unwrap(data);
 };
 
-export const getManufacturers = async () => {
-  return await request(schema.manufacturers.requests.getAll);
+export const getBrands = async () => {
+  return await request(schema.brands.requests.getAll);
 };
 
 export const getDevice = async (id) => {

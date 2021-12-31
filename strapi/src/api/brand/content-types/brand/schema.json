@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "manufacturers",
+  "collectionName": "brands",
   "info": {
-    "singularName": "manufacturer",
-    "pluralName": "manufacturers",
-    "displayName": "Manufacturer"
+    "singularName": "brand",
+    "pluralName": "brands",
+    "displayName": "Brand"
   },
   "options": {
     "draftAndPublish": false
@@ -18,7 +18,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::device.device",
-      "mappedBy": "manufacturer"
+      "mappedBy": "brand"
     }
   }
 }

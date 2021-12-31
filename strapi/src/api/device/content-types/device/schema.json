@@ -4,7 +4,8 @@
   "info": {
     "singularName": "device",
     "pluralName": "devices",
-    "displayName": "Device"
+    "displayName": "Device",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -23,17 +24,22 @@
         "Matrix"
       ]
     },
-    "manufacturer": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::manufacturer.manufacturer",
-      "inversedBy": "devices"
-    },
     "protocols": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::protocol.protocol",
       "mappedBy": "device"
+    },
+    "device_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::device-type.device-type"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "devices"
     }
   }
 }

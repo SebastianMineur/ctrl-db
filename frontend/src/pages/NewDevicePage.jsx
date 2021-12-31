@@ -1,15 +1,13 @@
-import { useEffect } from "react";
-import { useState } from "react";
-// import { getManufacturers } from "../services/strapi";
+import { useState, useEffect } from "react";
+import { useQuery } from "@apollo/client";
 import Button from "../components/Button";
+import { GET_BRANDS } from "../services/queries";
 
 const NewDevicePage = () => {
-  const [manufacturer, setManufacturer] = useState();
-  const [manufacturers, setManufacturers] = useState();
+  const [brand, setBrand] = useState();
+  const { data: brands } = useQuery(GET_BRANDS);
 
-  useEffect(async () => {
-    // setManufacturers(await getManufacturers());
-  }, []);
+  useEffect(async () => {}, []);
 
   return (
     <div className="container-lg">
@@ -32,17 +30,17 @@ const NewDevicePage = () => {
       </div>
 
       <div className="flex column gap-05">
-        <label>Manufacturer</label>
+        <label>Brand</label>
         <select
-          value={manufacturer ? manufacturer : ""}
+          value={brand ?? ""}
           onChange={(e) => {
-            setManufacturer(e.target.value);
+            setBrand(e.target.value);
           }}
           className="bg-white mb-1"
         >
           <option value="" disabled></option>
-          {manufacturers?.map((m) => (
-            <option key={m.id}>{m.name}</option>
+          {brands?.brands.data.map((brand) => (
+            <option key={brand.id}>{brand.attributes.name}</option>
           ))}
         </select>
       </div>
