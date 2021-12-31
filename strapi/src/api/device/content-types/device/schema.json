@@ -15,15 +15,6 @@
     "model": {
       "type": "string"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "Projector",
-        "Display",
-        "DSP",
-        "Matrix"
-      ]
-    },
     "protocols": {
       "type": "relation",
       "relation": "oneToMany",

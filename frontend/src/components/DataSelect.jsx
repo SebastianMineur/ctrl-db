@@ -3,7 +3,9 @@ const Select = ({ data, ...rest }) => {
     <select {...rest}>
       <option value="" disabled></option>
       {data?.map((option) => (
-        <option key={option.id}>{option.attributes.name}</option>
+        <option key={option.id} value={option.id}>
+          {option.attributes.name}
+        </option>
       ))}
     </select>
   );

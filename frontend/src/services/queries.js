@@ -103,11 +103,21 @@ export const SEARCH_DEVICES = gql`
 
 export const CREATE_DEVICE = gql`
   mutation createDevice($model: String!, $device_type: ID!, $brand: ID!) {
+    createDevice(
+      data: { model: $model, device_type: $device_type, brand: $brand }
+    ) {
       data {
         id
         attributes {
           model
-          type
+          device_type {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
           brand {
             data {
               id

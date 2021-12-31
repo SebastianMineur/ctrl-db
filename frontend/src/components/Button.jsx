@@ -14,18 +14,18 @@ const colors = {
   dark: "var(--color-dark)",
 };
 
-const Button = (props) => {
+const Button = ({ className, children, ...props }) => {
   const variant = variants[props.variant ?? "none"];
   const color = colors[props.color ?? "primary"];
 
   return (
     <button
-      className={`Button ${props.className}`}
+      {...props}
+      className={`Button ${className}`}
       data-variant={variant}
-      onClick={props.onClick}
       style={{ "--color": color }}
     >
-      {props.children}
+      {children}
     </button>
   );
 };
