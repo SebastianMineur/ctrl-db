@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 
 const query = gql`
@@ -14,7 +14,13 @@ const query = gql`
   }
 `;
 
-const unwrap = (data) => data.data.login;
+const unwrap = (data) => {
+  try {
+    return data.data.login;
+  } catch (error) {
+    throw new Error("Invalid data format: " + JSON.stringify(data));
+  }
+};
 
 export const useLoginMutation = () => {
   const [data, setData] = useState();
@@ -22,17 +28,21 @@ export const useLoginMutation = () => {
 
   // Wrap original mutation so we can unwrap the data envelope
   const mutate = async (options) => {
+    // Also delay original onCompleted until we've handled the data
+    const onCompleted = options.onCompleted;
     try {
-      const response = await originalMutation(options);
-      return unwrap(response);
+      const response = await originalMutation({
+        ...options,
+        onCompleted: undefined,
+      });
+      const unwrapped = unwrap(response);
+      if (typeof onCompleted === "function") onCompleted(unwrapped);
+      setData(unwrapped);
+      return unwrapped;
     } catch (error) {
       throw error;
     }
   };
-
-  useEffect(() => {
-    setData(results.data ? unwrap(results.data) : null);
-  }, [results.data]);
 
   return [mutate, { ...results, data }];
 };
