@@ -7,7 +7,7 @@ import Navmenu from "./Navmenu";
 import { useAuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState();
+  const [showMenu, setShowMenu] = useState(false);
   const { currentUser } = useAuthContext();
 
   return (
@@ -18,13 +18,13 @@ const Navbar = () => {
         <div className="flex align-center gap-1">
           {currentUser && <span>{currentUser.username}</span>}
 
-          <Button className="col-white" onClick={() => setShowMenu(!showMenu)}>
+          <Button className="col-white" onClick={() => setShowMenu(true)}>
             <Icon icon={showMenu ? menuOpen : menu} size="2rem" />
           </Button>
         </div>
       </div>
 
-      {showMenu && <Navmenu />}
+      {showMenu && <Navmenu onClose={() => setShowMenu(false)} />}
     </header>
   );
 };

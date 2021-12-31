@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
@@ -5,11 +6,31 @@ import { home, login, plus } from "../../assets/icons";
 import "./Navmenu.css";
 import { useAuthContext } from "../../contexts/AuthContext";
 
-const Navmenu = () => {
+const Navmenu = ({ onClose }) => {
   const { currentUser, logout } = useAuthContext();
+  const navRef = useRef();
+
+  useEffect(() => {
+    const clickListener = (e) => {
+      if (
+        !navRef.current.contains(e.target) ||
+        e.target.tagName == "A" ||
+        e.target.tagName == "BUTTON"
+      ) {
+        if (typeof onClose === "function") onClose();
+      }
+    };
+    addEventListener("click", clickListener);
+    return () => {
+      removeEventListener("click", clickListener);
+    };
+  }, []);
 
   return (
-    <nav className="Navmenu flex column gap-1 bg-white p-1 rounded shadow-lg">
+    <nav
+      ref={navRef}
+      className="Navmenu flex column gap-1 bg-white p-1 rounded shadow-lg"
+    >
       <NavLink to="/">
         Home
         <Icon icon={home} size="1.25em" />
