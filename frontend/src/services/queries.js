@@ -59,7 +59,7 @@ export const GET_ME = gql`
 `;
 
 export const LOGIN = gql`
-  mutation Login($email: String!, $password: String!) {
+  mutation login($email: String!, $password: String!) {
     login(input: { identifier: $email, password: $password }) {
       jwt
       user {
@@ -72,7 +72,7 @@ export const LOGIN = gql`
 `;
 
 export const SEARCH_DEVICES = gql`
-  query SearchDevices($search: String!) {
+  query searchDevices($search: String!) {
     devices(
       filters: {
         or: [
@@ -102,8 +102,7 @@ export const SEARCH_DEVICES = gql`
 `;
 
 export const CREATE_DEVICE = gql`
-  mutation CreateDevice($model: String!, $type: String!, $brand: Int!) {
-    createDevice(data: { model: $model, type: $type, brand: $brand }) {
+  mutation createDevice($model: String!, $device_type: ID!, $brand: ID!) {
       data {
         id
         attributes {
