@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import Button from "../components/Button";
-import { GET_BRANDS } from "../services/queries";
+import DataSelect from "../components/DataSelect";
+import { GET_BRANDS, GET_DEVICE_TYPES } from "../services/queries";
 
 const NewDevicePage = () => {
   const [brand, setBrand] = useState();
-  const { data: brands } = useQuery(GET_BRANDS);
+  const [deviceType, setDeviceType] = useState();
+  const brandsQuery = useQuery(GET_BRANDS);
+  const deviceTypesQuery = useQuery(GET_DEVICE_TYPES);
 
   useEffect(async () => {}, []);
 
@@ -31,28 +34,26 @@ const NewDevicePage = () => {
 
       <div className="flex column gap-05">
         <label>Brand</label>
-        <select
+        <DataSelect
+          data={brandsQuery.data?.brands.data}
           value={brand ?? ""}
           onChange={(e) => {
             setBrand(e.target.value);
           }}
           className="bg-white mb-1"
-        >
-          <option value="" disabled></option>
-          {brands?.brands.data.map((brand) => (
-            <option key={brand.id}>{brand.attributes.name}</option>
-          ))}
-        </select>
+        />
       </div>
 
       <div className="flex column gap-05">
         <label>Type</label>
-        <select className="bg-white">
-          <option>Option 1</option>
-          <option>Option 2</option>
-          <option>Option 3</option>
-          <option>Option 4</option>
-        </select>
+        <DataSelect
+          data={deviceTypesQuery.data?.deviceTypes.data}
+          value={deviceType ?? ""}
+          onChange={(e) => {
+            setDeviceType(e.target.value);
+          }}
+          className="bg-white mb-1"
+        />
       </div>
 
       <hr className="my-2" />

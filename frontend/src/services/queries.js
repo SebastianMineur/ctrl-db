@@ -122,3 +122,16 @@ export const CREATE_DEVICE = gql`
     }
   }
 `;
+
+export const GET_DEVICE_TYPES = gql`
+  query {
+    deviceTypes {
+      data {
+        id
+        attributes {
+          name
+        }
+      }
+    }
+  }
+`;
