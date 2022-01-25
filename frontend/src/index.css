@@ -36,11 +36,11 @@ hr {
   width: 100%;
   height: 1px;
   border: none;
-  background: hsl(var(--color-border));
+  background: var(--col-border);
 }
 
 a {
-  color: hsl(var(--color-primary));
+  color: var(--col-primary);
   text-decoration: none;
 }
 a:hover {
