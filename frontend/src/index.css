@@ -19,11 +19,13 @@ select {
   border: var(--border);
   border-radius: 0.25em;
   background: #f0f0f0;
+  transition: box-shadow 0.1s;
 }
 
 input:focus-visible,
 select:focus-visible {
-  outline: var(--focus-outline);
+  outline: none;
+  box-shadow: var(--focus-shadow);
   background: #ffffff;
 }
 
