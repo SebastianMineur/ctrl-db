@@ -1,0 +1,16 @@
+.TestPage {
+  display: grid;
+  margin-inline: auto;
+  grid-template: repeat(3, 1fr) / repeat(10, 1fr);
+}
+
+.TestPage .inner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+
+.TestPage .current {
+  background-color: currentColor;
+}
