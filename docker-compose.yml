@@ -7,16 +7,18 @@ services:
       - .env
 
   strapi:
-    image: nervousnerve/strapi:4.0.0
+    image: node:14
     ports:
       - 1337:1337
     volumes:
       - ./strapi:/srv/app
+    working_dir: /srv/app
     env_file:
       - .env
     depends_on:
       - postgres
     user: 1000:1000
+    command: bash -c "yarn install && yarn run develop"
 
   frontend:
     image: node:14
