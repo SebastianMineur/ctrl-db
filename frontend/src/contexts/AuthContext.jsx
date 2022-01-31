@@ -1,6 +1,7 @@
-import { createContext, useContext } from "react";
-import { useLoginMutation } from "../hooks/useLoginMutation";
-import { useWhoamiQuery } from "../hooks/useWhoamiQuery";
+import { createContext, useContext, useState } from "react";
+import { useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { LOGIN, GET_ME } from "../queries/auth";
 
 const AuthContext = createContext();
 
@@ -9,20 +10,30 @@ const useAuthContext = () => {
 };
 
 const AuthContextProvider = (props) => {
-  const [loginMutation] = useLoginMutation();
-  const { data: currentUser, refetch: updateUser } = useWhoamiQuery();
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const [loginMutation] = useMutation(LOGIN);
+
+  const userQuery = useQuery(GET_ME, {
+    onCompleted(data) {
+      setCurrentUser(data.me);
+    },
+    onError() {
+      setCurrentUser(null);
+    },
+  });
 
   const login = async (email, password) => {
     const response = await loginMutation({
       variables: { email, password },
     });
-    localStorage.setItem("jwt", response.jwt);
-    updateUser();
+    localStorage.setItem("jwt", response.data.login.jwt);
+    userQuery.refetch();
   };
 
   const logout = () => {
     localStorage.removeItem("jwt");
-    updateUser();
+    userQuery.refetch();
   };
 
   const values = {

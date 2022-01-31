@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+
 import Button from "../components/Button";
 import DataSelect from "../components/DataSelect";
-import {
-  GET_BRANDS,
-  GET_DEVICE_TYPES,
-  CREATE_DEVICE,
-} from "../services/queries";
-import { useNavigate } from "react-router-dom";
+import { GET_BRANDS } from "../queries/brands";
+import { CREATE_DEVICE } from "../queries/devices";
+import { GET_DEVICE_TYPES } from "../queries/device-types";
 
 const NewDevicePage = () => {
   const [model, setModel] = useState();

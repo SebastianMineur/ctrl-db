@@ -1,16 +1,21 @@
 import { useState } from "react";
 import SearchForm from "./partials/SearchForm";
 import DeviceList from "./partials/DeviceList";
-import { useSearchQuery } from "../hooks/useSearchQuery";
+import { useQuery } from "@apollo/client";
+import { SEARCH_DEVICES } from "../queries/devices";
 import "./HomePage.css";
 
 const HomePage = () => {
   const [search, setSearch] = useState("");
+
   const {
     data: results,
     loading,
     error,
-  } = useSearchQuery({ variables: { search }, skip: !Boolean(search) });
+  } = useQuery(SEARCH_DEVICES, {
+    variables: { search },
+    skip: !Boolean(search),
+  });
 
   const handleSearch = async (search) => {
     setSearch(search);
@@ -24,18 +29,22 @@ const HomePage = () => {
         {loading && <p className="m-0 text-center">Loading...</p>}
 
         {error && (
-          <p className="p-1 m-0 text-center bg-danger rounded b-1">{error}</p>
+          <p className="p-1 m-0 text-center bg-danger rounded b-1">
+            {error.message}
+          </p>
         )}
 
-        {Boolean(search) && (
+        {search && (
           <h3 className="font-sm m-0 mb-05 text-center">
-            {results?.length
-              ? `${results.length} result(s) for '${search}'`
+            {results?.devices?.data?.length
+              ? `${results.devices.data.length} result(s) for '${search}'`
               : `No results for '${search}'`}
           </h3>
         )}
 
-        {results?.length > 0 && <DeviceList devices={results} />}
+        {results?.devices?.data?.length > 0 && (
+          <DeviceList devices={results.devices.data} />
+        )}
       </div>
     </div>
   );

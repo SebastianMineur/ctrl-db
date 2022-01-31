@@ -7,11 +7,13 @@ const DeviceList = ({ devices }) => {
         <div key={device.id} className="SearchResult p-1">
           <div className="flex justify-between">
             <Link to={`/device/${device.id}`} className="m-0 font-bold">
-              {device.model}
+              {device.attributes.model}
             </Link>
-            <p className="m-0">{device.type}</p>
+            <p className="m-0">
+              {device.attributes.device_type.data.attributes.name}
+            </p>
           </div>
-          <p className="m-0">{device.brand.name}</p>
+          <p className="m-0">{device.attributes.brand.data.attributes.name}</p>
         </div>
       ))}
     </div>
