@@ -47,9 +47,7 @@ const SearchForm = ({ onSearch }) => {
           value={selectedType || ""}
           onChange={(e) => setSelectedType(e.target.value)}
         >
-          <option value="" disabled>
-            Type
-          </option>
+          <option value="">Any type</option>
           {typeOptions?.map((deviceType) => (
             <option value={deviceType.id} key={deviceType.id}>
               {deviceType.attributes.name}
@@ -62,9 +60,7 @@ const SearchForm = ({ onSearch }) => {
           value={selectedBrand || ""}
           onChange={(e) => setSelectedBrand(e.target.value)}
         >
-          <option value="" disabled>
-            Brand
-          </option>
+          <option value="">Any brand</option>
           {brandOptions?.map((brand) => (
             <option value={brand.id} key={brand.id}>
               {brand.attributes.name}
