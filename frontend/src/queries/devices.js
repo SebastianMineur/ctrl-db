@@ -76,7 +76,7 @@ export const CREATE_DEVICE = gql`
 `;
 
 export const SEARCH_DEVICES = gql`
-  query SearchDevices($search: String!) {
+  query SearchDevices($search: String!, $type: ID, $brand: ID) {
     devices(
       filters: {
         or: [
@@ -84,6 +84,8 @@ export const SEARCH_DEVICES = gql`
           { device_type: { name: { containsi: $search } } }
           { brand: { name: { containsi: $search } } }
         ]
+        device_type: { id: { eq: $type } }
+        brand: { id: { eq: $brand } }
       }
     ) {
       data {

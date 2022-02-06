@@ -6,19 +6,22 @@ import { SEARCH_DEVICES } from "../queries/devices";
 import "./HomePage.css";
 
 const HomePage = () => {
-  const [search, setSearch] = useState("");
+  const [searchOptions, setSearchOptions] = useState({});
 
   const {
     data: results,
     loading,
     error,
   } = useQuery(SEARCH_DEVICES, {
-    variables: { search },
-    skip: !Boolean(search),
+    variables: {
+      search: searchOptions.search || "",
+      type: searchOptions.type,
+      brand: searchOptions.brand,
+    },
   });
 
-  const handleSearch = async (search) => {
-    setSearch(search);
+  const handleSearch = async (options) => {
+    setSearchOptions(options);
   };
 
   return (
@@ -34,11 +37,11 @@ const HomePage = () => {
           </p>
         )}
 
-        {search && (
+        {Object.values(searchOptions).length > 0 && (
           <h3 className="font-sm m-0 mb-05 text-center">
             {results?.devices?.data?.length
-              ? `${results.devices.data.length} result(s) for '${search}'`
-              : `No results for '${search}'`}
+              ? `${results.devices.data.length} result(s)`
+              : `No results`}
           </h3>
         )}
 
