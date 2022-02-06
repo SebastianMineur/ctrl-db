@@ -36,5 +36,5 @@
   border-color: hsl(var(--color));
 }
 .Button[data-variant="outline"]:hover {
-  background: hsl(var(--color) / 0.15);
+  background: hsl(var(--color) / 0.1);
 }
