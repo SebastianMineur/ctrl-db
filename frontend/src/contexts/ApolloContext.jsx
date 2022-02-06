@@ -7,12 +7,13 @@ import {
   from,
 } from "@apollo/client";
 
+// Base URL to GraphQL API
 const httpLink = new HttpLink({
   uri: `//${import.meta.env.VITE_API_URL}`,
 });
 
+// Add authorization headers to request
 const authMiddleware = new ApolloLink((operation, forward) => {
-  // add the authorization to the headers
   operation.setContext(({ headers = {} }) => {
     const token = localStorage.getItem("jwt");
     return {
@@ -22,11 +23,11 @@ const authMiddleware = new ApolloLink((operation, forward) => {
       },
     };
   });
-
   return forward(operation);
 });
 
 const apolloClient = new ApolloClient({
+  // Combine URL and auth headers
   link: from([authMiddleware, httpLink]),
   cache: new InMemoryCache(),
 });
