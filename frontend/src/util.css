@@ -215,6 +215,13 @@
 .oval { border-radius: 100%; }
 .pill { border-radius: 100vh; }
 
+.radius-none { border-radius: 0; }
+.radius-sm { border-radius: calc(var(--border-radius) / 2); }
+.radius-md { border-radius: var(--border-radius); }
+.radius-lg { border-radius: calc(var(--border-radius) * 2); }
+.radius-oval { border-radius: 100%; }
+.radius-pill { border-radius: 100vh; }
+
 /* Colors */
 .col-none { color: transparent; }
 .col-white { color: white; }
