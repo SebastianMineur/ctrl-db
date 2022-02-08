@@ -4,8 +4,6 @@
   --gap-05: calc(var(--gap-1) / 2);
   --gap-025: calc(var(--gap-1) / 4);
 
-  --border-radius: 8px;
-
   --col-primary-hsl: 206deg 75% 45%;
   --col-light-hsl: 0 0% 40%;
   --col-dark-hsl: 0 0% 20%;
@@ -40,11 +38,16 @@
 
   --col-border: var(--bg-dark);
 
+  --border: 1px solid var(--col-border);
+  --border-radius: 8px;
+
   --shadow-sm: 0 1px 0px 0 hsl(0deg 0% 0% / 0.33),
     0 0 2px hsl(0deg 0% 0% / 0.125);
   --shadow-md: 0 1px 0px 0 hsl(0deg 0% 0% / 0.1),
     0 1px 4px hsl(0deg 0% 0% / 0.25);
   --shadow-lg: 0 2px 6px 0 hsl(0deg 0% 0% / 0.2);
+
+  --focus-shadow: 0 0 0 4px hsl(var(--col-primary-hsl) / 0.4);
 
   --font-sans: sans-serif;
   --font-serif: serif;
@@ -59,10 +62,6 @@
   --font-thin: 300;
   --font-normal: 400;
   --font-bold: 600;
-
-  --focus-shadow: 0 0 0 4px hsl(var(--col-primary-hsl) / 0.4);
-
-  --border: 1px solid var(--col-border);
 }
 
 .list-reset {
