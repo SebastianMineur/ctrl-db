@@ -1,7 +1,6 @@
 import { createContext, useContext, useState } from "react";
-import { useMutation } from "@apollo/client";
-import { useQuery } from "@apollo/client";
-import { LOGIN, GET_ME } from "../queries/auth";
+import { useMutation, useQuery } from "@apollo/client";
+import { GET_ME, LOGIN } from "../queries/auth";
 
 const AuthContext = createContext();
 
@@ -11,15 +10,19 @@ const useAuthContext = () => {
 
 const AuthContextProvider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const [loginMutation] = useMutation(LOGIN);
 
   const userQuery = useQuery(GET_ME, {
     onCompleted(data) {
       setCurrentUser(data.me);
+      setLoading(false);
     },
     onError() {
       setCurrentUser(null);
+      localStorage.removeItem("jwt");
+      setLoading(false);
     },
   });
 
@@ -43,7 +46,9 @@ const AuthContextProvider = (props) => {
   };
 
   return (
-    <AuthContext.Provider value={values}>{props.children}</AuthContext.Provider>
+    <AuthContext.Provider value={values}>
+      {!loading && props.children}
+    </AuthContext.Provider>
   );
 };
 
