@@ -12,3 +12,16 @@ export const GET_DEVICE_TYPES = gql`
     }
   }
 `;
+
+export const CREATE_DEVICE_TYPE = gql`
+  mutation CreateDeviceType($name: String!) {
+    createDeviceType(data: { name: $name }) {
+      data {
+        id
+        attributes {
+          name
+        }
+      }
+    }
+  }
+`;
