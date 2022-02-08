@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./pages/partials/Navbar";
 import HomePage from "./pages/HomePage";
-import NewDevicePage from "./pages/NewDevicePage";
+import NewDevicePage from "./pages/CreateDevicePage";
 import DevicePage from "./pages/DevicePage";
 import LoginPage from "./pages/LoginPage";
 import TestPage from "./pages/TestPage";
