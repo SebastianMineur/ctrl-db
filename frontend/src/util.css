@@ -73,6 +73,9 @@
 /* Layout */
 .flex { display: flex; }
 .grid { display: grid; }
+.block { display: block; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
 
 .row { flex-direction: row; grid-auto-flow: column; }
 .column { flex-direction: column; grid-auto-flow: row; }
