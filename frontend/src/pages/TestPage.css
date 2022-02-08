@@ -1,16 +1,18 @@
-.TestPage {
+.TestPage .color-grid {
   display: grid;
-  margin-inline: auto;
-  grid-template: repeat(3, 1fr) / repeat(10, 1fr);
+  grid-template: repeat(3, 80px) / repeat(10, 1fr);
 }
 
-.TestPage .inner {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin: 10px;
+.TestPage .color-grid > div {
+  position: relative;
+  border: 1px solid lightgray;
 }
 
-.TestPage .current {
+.TestPage .color-grid .inner {
+  position: absolute;
+  inset: 20px;
+}
+
+.TestPage .color-grid .current {
   background-color: currentColor;
 }
