@@ -13,8 +13,13 @@
 
 .Button[data-variant="filled"],
 .Button[data-variant="outline"] {
-  padding: 0.5em 1em;
+  box-sizing: border-box;
+  min-height: 2.25em;
+  padding: 0 1em;
   border-radius: 0.25em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
 }
 .Button[data-variant="filled"]:focus-visible,
 .Button[data-variant="outline"]:focus-visible {

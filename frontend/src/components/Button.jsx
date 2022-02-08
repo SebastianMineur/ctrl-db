@@ -16,16 +16,16 @@ const colors = {
   info: "var(--col-info-hsl)",
 };
 
-const Button = ({ className, children, ...props }) => {
+const Button = ({ className, children, style, ...props }) => {
   const variant = variants[props.variant ?? "none"];
   const color = colors[props.color ?? "primary"];
 
   return (
     <button
       {...props}
-      className={`Button ${className}`}
+      className={`Button ${className || ""}`}
       data-variant={variant}
-      style={{ "--color": color }}
+      style={{ "--color": color, ...style }}
     >
       {children}
     </button>
