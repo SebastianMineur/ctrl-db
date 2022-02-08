@@ -1,0 +1,4 @@
+.Input.error {
+  box-shadow: 0 0 0 4px hsl(var(--col-danger-hsl) / 0.4);
+  background-color: hsl(var(--bg-danger-hsl) / 0.2);
+}
