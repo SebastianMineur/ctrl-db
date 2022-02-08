@@ -12,3 +12,16 @@ export const GET_BRANDS = gql`
     }
   }
 `;
+
+export const CREATE_BRAND = gql`
+  mutation CreateBrand($name: String!) {
+    createBrand(data: { name: $name }) {
+      data {
+        id
+        attributes {
+          name
+        }
+      }
+    }
+  }
+`;
