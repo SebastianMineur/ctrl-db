@@ -1,8 +1,0 @@
-.HomePage .ResultsList {
-  overflow: hidden;
-  border-color: var(--col-border);
-}
-
-.HomePage .SearchResult:not(:last-child) {
-  border-bottom: 1px solid var(--col-border);
-}

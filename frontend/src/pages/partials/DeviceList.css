@@ -1,0 +1,21 @@
+.DeviceList {
+  overflow: hidden;
+  border-color: var(--col-border);
+}
+
+.DeviceList .SearchResult {
+  display: block;
+  color: var(--col-dark);
+  text-decoration: none;
+}
+
+.DeviceList .SearchResult:hover,
+.DeviceList .SearchResult:focus-within {
+  outline: none;
+  color: var(--col-primary);
+  background-color: var(--bg-light);
+}
+
+.DeviceList .SearchResult:not(:last-child) {
+  border-bottom: 1px solid var(--col-border);
+}
