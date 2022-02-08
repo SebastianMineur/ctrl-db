@@ -1,8 +1,10 @@
 import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../contexts/AuthContext";
+
 import Button from "../components/Button";
 import Icon from "../components/Icon";
+
+import { useAuthContext } from "../contexts/AuthContext";
 import { alert } from "../assets/icons";
 
 const LoginPage = () => {

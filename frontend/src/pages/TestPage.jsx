@@ -1,7 +1,7 @@
 import Icon from "../components/Icon";
 
 import * as icons from "../assets/icons";
-import "./TestPage.css";
+import "./css/TestPage.css";
 
 const TestPage = () => {
   return (

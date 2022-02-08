@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./Modal.css";
+import "./css/Modal.css";
 
 const Modal = ({ children, className, onClick, ...props }) => {
   const ref = useRef();

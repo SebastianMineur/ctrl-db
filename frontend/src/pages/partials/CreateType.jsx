@@ -9,7 +9,7 @@ import {
   GET_DEVICE_TYPES,
   CREATE_DEVICE_TYPE,
 } from "../../queries/device-types";
-import "./CreateType.css";
+import "./css/CreateType.css";
 
 const CreateType = ({ onCancel, onCreate }) => {
   const [typeName, setTypeName] = useState();

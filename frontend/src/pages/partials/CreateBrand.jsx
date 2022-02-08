@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 import Spinner from "../../components/Spinner";
 
 import { GET_BRANDS, CREATE_BRAND } from "../../queries/brands";
-import "./CreateBrand.css";
+import "./css/CreateBrand.css";
 
 const CreateBrand = ({ onCancel, onCreate }) => {
   const [brandName, setBrandName] = useState();

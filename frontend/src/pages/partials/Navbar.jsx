@@ -1,10 +1,12 @@
 import { useState } from "react";
+
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
-import { menu, menuOpen } from "../../assets/icons";
-import "./Navbar.css";
 import Navmenu from "./Navmenu";
+
 import { useAuthContext } from "../../contexts/AuthContext";
+import { menu, menuOpen } from "../../assets/icons";
+import "./css/Navbar.css";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);

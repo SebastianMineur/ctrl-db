@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./DeviceList.css";
+import "./css/DeviceList.css";
 
 const DeviceList = ({ devices }) => {
   return (
