@@ -93,6 +93,13 @@
 .gap-1 { gap: var(--gap-1); }
 .gap-2 { gap: var(--gap-2); }
 
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.flex-grow { flex-grow: 1; }
+.flex-nogrow { flex-grow: 0; }
+.flex-shrink { flex-shrink: 1; }
+.flex-noshrink { flex-shrink: 0; }
+
 /* Padding */
 .p-0 { padding: 0; }
 .p-025 { padding: var(--gap-025); }
