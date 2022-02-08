@@ -7,7 +7,14 @@ export const GET_DEVICE_FROM_ID = gql`
         id
         attributes {
           model
-          type
+          device_type {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
           brand {
             data {
               id
@@ -29,7 +36,14 @@ export const GET_DEVICES = gql`
         id
         attributes {
           model
-          type
+          device_type {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
           brand {
             data {
               id
