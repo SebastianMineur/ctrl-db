@@ -47,4 +47,11 @@ a {
 }
 a:hover {
   text-decoration: underline;
+  opacity: 60%;
+}
+
+button {
+  font-size: inherit;
+  padding: 0;
+  border: none;
 }

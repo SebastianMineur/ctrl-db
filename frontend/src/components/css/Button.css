@@ -1,10 +1,14 @@
 .Button {
   font-weight: bold;
-  font-size: 1rem;
-  padding: 0;
-  border: none;
   cursor: pointer;
   transition: box-shadow 0.1s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.Button:hover {
+  opacity: 60%;
 }
 
 .Button:not([data-variant="filled"]):not([data-variant="outline"]) {
@@ -33,6 +37,7 @@
 }
 .Button[data-variant="filled"]:hover {
   background: hsl(var(--color) / 0.7);
+  opacity: 100%;
 }
 
 .Button[data-variant="outline"] {
@@ -42,4 +47,5 @@
 }
 .Button[data-variant="outline"]:hover {
   background: hsl(var(--color) / 0.1);
+  opacity: 100%;
 }

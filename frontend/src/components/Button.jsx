@@ -1,3 +1,4 @@
+import * as cls from "classnames";
 import "./css/Button.css";
 
 const variants = {
@@ -23,7 +24,7 @@ const Button = ({ className, children, style, ...props }) => {
   return (
     <button
       {...props}
-      className={`Button ${className || ""}`}
+      className={cls("Button", className)}
       data-variant={variant}
       style={{ "--color": color, ...style }}
     >
