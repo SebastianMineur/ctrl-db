@@ -1,0 +1,17 @@
+.ProtocolTabs {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.ProtocolTabs > * {
+  border-top-left-radius: calc(var(--border-radius) / 2);
+  border-top-right-radius: calc(var(--border-radius) / 2);
+}
+
+.ProtocolsList {
+  border-radius: var(--border-radius);
+  border-top-left-radius: 0;
+  border: var(--border);
+  overflow: hidden;
+}

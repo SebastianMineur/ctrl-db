@@ -1,28 +1,36 @@
-import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+
+import LoadingPage from "./LoadingPage";
+import ProtocolsView from "./partials/ProtocolsView";
 import { GET_DEVICE_FROM_ID } from "../queries/devices";
 
 const DevicePage = () => {
   const { id } = useParams();
   const deviceQuery = useQuery(GET_DEVICE_FROM_ID, { variables: { id } });
 
+  if (deviceQuery.loading) return <LoadingPage />;
   if (!deviceQuery.data) return null;
 
-  const brand =
-    deviceQuery.data.device.data.attributes.brand.data.attributes.name;
-  const model = deviceQuery.data.device.data.attributes.model;
+  const device = deviceQuery.data.device.data;
+  const modelName = device.attributes.model;
+  const brandName = device.attributes.brand.data.attributes.name;
+  const typeName = device.attributes.device_type.data.attributes.name;
+  const protocols = device.attributes.protocols.data;
 
   return (
     <div className="container-lg">
-      <h2 className="font-xl mt-1 mb-0">
-        <span className="block font-md">{brand}</span>
-        {model}
+      <h2 className="flex column font-xl my-1">
+        <span className="font-md">{brandName}</span>
+        {modelName}
       </h2>
 
-      <p className="mt-0">
-        A device can be any piece of hardware capable of receiving control
-        commands.
-      </p>
+      <span className="inline-block bg-white b-1 radius-pill pb-025 px-1">
+        {typeName}
+      </span>
+
+      <h3 className="mb-05">Protocols</h3>
+      <ProtocolsView protocols={protocols} />
     </div>
   );
 };
