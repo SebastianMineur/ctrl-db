@@ -76,6 +76,8 @@
 .block { display: block; }
 .inline { display: inline; }
 .inline-block { display: inline-block; }
+.inline-flex { display: inline-flex; }
+.inline-grid { display: inline-grid; }
 
 .row { flex-direction: row; grid-auto-flow: column; }
 .column { flex-direction: column; grid-auto-flow: row; }
@@ -271,3 +273,15 @@
 .br-1 { border-right: var(--border); }
 .bx-1 { border-left: var(--border); border-right: var(--border); }
 .by-1 { border-top: var(--border); border-bottom: var(--border); }
+
+.b-0 { border: 0; }
+.bt-0 { border-top: 0; }
+.bb-0 { border-bottom: 0; }
+.bl-0 { border-left: 0; }
+.br-0 { border-right: 0; }
+.bx-0 { border-left: 0; border-right: 0; }
+.by-0 { border-top: 0; border-bottom: 0; }
+
+.w-100 {
+  width: 100%;
+}
