@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 
-import SearchForm from "./partials/SearchForm";
-import DeviceList from "./partials/DeviceList";
+import SearchForm from "./partial/SearchForm";
+import DeviceList from "./partial/DeviceList";
 import { SEARCH_DEVICES } from "../queries/devices";
 
 const HomePage = () => {

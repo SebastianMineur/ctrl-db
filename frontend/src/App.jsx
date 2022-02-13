@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./pages/partials/Navbar";
+import Navbar from "./pages/partial/Navbar";
 import HomePage from "./pages/HomePage";
 import NewDevicePage from "./pages/CreateDevicePage";
 import DevicePage from "./pages/DevicePage";

@@ -6,8 +6,8 @@ import { useQuery } from "@apollo/client";
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 import Modal from "../components/Modal";
-import CreateBrand from "./partials/CreateBrand";
-import CreateType from "./partials/CreateType";
+import CreateBrand from "./partial/CreateBrand";
+import CreateType from "./partial/CreateType";
 
 import { GET_BRANDS } from "../queries/brands";
 import { CREATE_DEVICE } from "../queries/devices";

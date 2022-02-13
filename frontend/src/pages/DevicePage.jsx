@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import LoadingPage from "./LoadingPage";
-import ProtocolsView from "./partials/ProtocolsView";
+import ProtocolsView from "./partial/ProtocolsView";
 import { GET_DEVICE_FROM_ID } from "../queries/devices";
 
 const DevicePage = () => {
