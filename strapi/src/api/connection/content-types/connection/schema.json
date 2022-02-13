@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "connections",
+  "info": {
+    "singularName": "connection",
+    "pluralName": "connections",
+    "displayName": "Connection"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

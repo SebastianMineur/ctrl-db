@@ -4,7 +4,8 @@
   "info": {
     "singularName": "protocol",
     "pluralName": "protocols",
-    "displayName": "Protocol"
+    "displayName": "Protocol",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -13,17 +14,6 @@
   "attributes": {
     "name": {
       "type": "string"
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "RS232",
-        "RS485",
-        "TCPIP",
-        "UDP",
-        "TRIG12V",
-        "CONTACT"
-      ]
     },
     "device": {
       "type": "relation",
@@ -36,6 +26,19 @@
       "relation": "oneToMany",
       "target": "api::command.command",
       "mappedBy": "protocol"
+    },
+    "details": {
+      "type": "dynamiczone",
+      "components": [
+        "protocol-details.rs-232",
+        "protocol-details.tcp-ip"
+      ],
+      "max": 1
+    },
+    "connection": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::connection.connection"
     }
   }
 }

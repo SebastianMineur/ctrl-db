@@ -23,6 +23,46 @@ export const GET_DEVICE_FROM_ID = gql`
               }
             }
           }
+          protocols {
+            data {
+              id
+              attributes {
+                name
+                connection {
+                  data {
+                    id
+                    attributes {
+                      name
+                    }
+                  }
+                }
+                details {
+                  ... on ComponentProtocolDetailsRs232 {
+                    id
+                    baud_rate
+                    data_length
+                    stop_bits
+                    parity
+                  }
+                  ... on ComponentProtocolDetailsTcpIp {
+                    id
+                    ip_address
+                    subnet_mask
+                    dhcp
+                  }
+                }
+                commands {
+                  data {
+                    id
+                    attributes {
+                      description
+                      code
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
