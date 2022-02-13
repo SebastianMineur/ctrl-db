@@ -27,6 +27,7 @@ select:focus-visible {
   outline: none;
   box-shadow: var(--focus-shadow);
   background: #ffffff;
+  border-color: black;
 }
 
 label {

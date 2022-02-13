@@ -1,11 +1,12 @@
 import Icon from "../components/Icon";
+import * as cls from "classnames";
 
 import * as icons from "../assets/icons";
-import "./css/TestPage.css";
+import css from "./css/TestPage.module.css";
 
 const TestPage = () => {
   return (
-    <div className="TestPage container-lg grid column gap-2">
+    <div className={cls(css.TestPage, "container-lg grid column gap-2")}>
       <div className="color-grid">
         {/* Row 1 */}
         <div>

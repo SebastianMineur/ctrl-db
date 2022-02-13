@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import Icon from "../../components/Icon";
 import ProtocolDetails from "./ProtocolDetails";
 import { plus } from "../../assets/icons";
-import "./css/Protocols.css";
+import css from "./css/Protocols.module.css";
 import TabList from "../../components/TabList";
 import CommandList from "./CommandList";
 
@@ -31,7 +31,7 @@ const Protocols = ({ protocols }) => {
       </TabList>
 
       {protocols?.length > 0 && (
-        <div className="ProtocolsList">
+        <div className={css.ProtocolsList}>
           <ProtocolDetails
             name={protocols[selectedIndex].attributes.name}
             details={protocols[selectedIndex].attributes.details[0]}

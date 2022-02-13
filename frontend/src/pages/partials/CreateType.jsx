@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
+import * as cls from "classnames";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -9,7 +10,7 @@ import {
   GET_DEVICE_TYPES,
   CREATE_DEVICE_TYPE,
 } from "../../queries/device-types";
-import "./css/CreateType.css";
+import css from "./css/CreateType.module.css";
 
 const CreateType = ({ onCancel, onCreate }) => {
   const [typeName, setTypeName] = useState();
@@ -37,7 +38,10 @@ const CreateType = ({ onCancel, onCreate }) => {
 
   return (
     <form
-      className="CreateType flex column gap-2 bg-light px-2 py-2 radius-sm"
+      className={cls(
+        css.CreateType,
+        "flex column gap-2 bg-light px-2 py-2 radius-sm"
+      )}
       onSubmit={handleSubmit}
     >
       <div>

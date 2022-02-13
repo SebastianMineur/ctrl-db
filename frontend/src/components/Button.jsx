@@ -1,5 +1,5 @@
 import * as cls from "classnames";
-import "./css/Button.css";
+import css from "./css/Button.module.css";
 
 const variants = {
   none: "none",
@@ -24,7 +24,7 @@ const Button = ({ className, children, style, ...props }) => {
   return (
     <button
       {...props}
-      className={cls("Button", className)}
+      className={cls(css.Button, className)}
       data-variant={variant}
       style={{ "--color": color, ...style }}
     >

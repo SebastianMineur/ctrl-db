@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-import "./css/DeviceList.css";
+import * as cls from "classnames";
+import css from "./css/DeviceList.module.css";
 
 const DeviceList = ({ devices }) => {
   return (
-    <div className="DeviceList bg-white rounded b-1">
+    <div className={cls(css.DeviceList, "bg-white rounded b-1")}>
       {devices.map((device) => (
         <Link
           to={`/device/${device.id}`}
           key={device.id}
-          className="SearchResult p-1"
+          className={cls(css.SearchResult, "p-1")}
         >
           <div className="flex justify-between">
             <p className="m-0 font-bold">{device.attributes.model}</p>

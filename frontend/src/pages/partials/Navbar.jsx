@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as cls from "classnames";
 
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
@@ -6,14 +7,14 @@ import Navmenu from "./Navmenu";
 
 import { useAuthContext } from "../../contexts/AuthContext";
 import { menu, menuOpen } from "../../assets/icons";
-import "./css/Navbar.css";
+import css from "./css/Navbar.module.css";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { currentUser } = useAuthContext();
 
   return (
-    <header className="Navbar py-2 px-1">
+    <header className={cls(css.Navbar, "py-2 px-1")}>
       <div className="flex align-center justify-between">
         <h1 className="font-lg m-0">Ctrl DB</h1>
 

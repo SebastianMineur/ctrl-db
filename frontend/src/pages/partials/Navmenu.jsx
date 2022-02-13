@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import * as cls from "classnames";
 
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
 
 import { useAuthContext } from "../../contexts/AuthContext";
 import { home, login, plus } from "../../assets/icons";
-import "./css/Navmenu.css";
+import css from "./css/Navmenu.module.css";
 
 const Navmenu = ({ onClose }) => {
   const { currentUser, logout } = useAuthContext();
@@ -31,7 +32,10 @@ const Navmenu = ({ onClose }) => {
   return (
     <nav
       ref={navRef}
-      className="Navmenu flex column gap-1 bg-white p-1 rounded shadow-lg"
+      className={cls(
+        css.Navmenu,
+        "flex column gap-1 bg-white p-1 rounded shadow-lg"
+      )}
     >
       <NavLink to="/">
         Home

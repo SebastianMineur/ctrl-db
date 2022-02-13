@@ -1,10 +1,10 @@
 import React from "react";
 import * as cls from "classnames";
-import "./css/TabList.css";
+import css from "./css/TabList.module.css";
 
 const TabList = ({ children, activeIndex, ...props }) => {
   return (
-    <ul className="TabList" {...props}>
+    <ul className={css.TabList} {...props}>
       {React.Children.map(children, (child, index) => (
         <li
           key={index}

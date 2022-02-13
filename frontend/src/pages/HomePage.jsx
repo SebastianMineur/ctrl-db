@@ -25,7 +25,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="HomePage">
+    <div>
       <SearchForm onSearch={handleSearch} />
 
       <div className="container-lg">

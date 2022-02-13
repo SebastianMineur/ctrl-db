@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
+import * as cls from "classnames";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Spinner from "../../components/Spinner";
 
 import { GET_BRANDS, CREATE_BRAND } from "../../queries/brands";
-import "./css/CreateBrand.css";
+import css from "./css/CreateBrand.module.css";
 
 const CreateBrand = ({ onCancel, onCreate }) => {
   const [brandName, setBrandName] = useState();
@@ -34,7 +35,10 @@ const CreateBrand = ({ onCancel, onCreate }) => {
 
   return (
     <form
-      className="CreateBrand flex column gap-2 bg-light px-2 py-2 radius-sm"
+      className={cls(
+        css.CreateBrand,
+        "flex column gap-2 bg-light px-2 py-2 radius-sm"
+      )}
       onSubmit={handleSubmit}
     >
       <div>

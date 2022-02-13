@@ -1,9 +1,10 @@
 import Spinner from "../components/Spinner";
-import "./css/LoadingPage.css";
+import * as cls from "classnames";
+import css from "./css/LoadingPage.module.css";
 
 const LoadingPage = () => {
   return (
-    <div className="LoadingPage col-primary">
+    <div className={cls(css.LoadingPage, "col-primary")}>
       <Spinner size="100px" />
     </div>
   );
