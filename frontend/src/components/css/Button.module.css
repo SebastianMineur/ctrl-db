@@ -1,14 +1,18 @@
 .Button {
   font-weight: bold;
-  cursor: pointer;
   transition: box-shadow 0.1s;
   display: inline-flex;
   align-items: center;
   gap: 0.25em;
 }
 
-.Button:hover {
+.Button:disabled {
   opacity: 60%;
+}
+
+.Button:hover:not(:disabled) {
+  opacity: 80%;
+  cursor: pointer;
 }
 
 .Button:not([data-variant="filled"]):not([data-variant="outline"]) {
@@ -35,7 +39,7 @@
   background: hsl(var(--color));
   color: white;
 }
-.Button[data-variant="filled"]:hover {
+.Button[data-variant="filled"]:hover:not(:disabled) {
   background: hsl(var(--color) / 0.7);
   opacity: 100%;
 }
@@ -45,7 +49,7 @@
   color: hsl(var(--color));
   border-color: hsl(var(--color));
 }
-.Button[data-variant="outline"]:hover {
+.Button[data-variant="outline"]:hover:not(:disabled) {
   background: hsl(var(--color) / 0.1);
   opacity: 100%;
 }
