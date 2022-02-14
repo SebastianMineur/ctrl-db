@@ -1,0 +1,12 @@
+.Alert {
+  text-align: center;
+  padding: var(--gap-1);
+  border: 1px solid hsl(var(--color));
+  color: hsl(var(--color));
+  background-color: hsl(var(--color) / 0.25);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-1);
+}
