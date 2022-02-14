@@ -1,0 +1,22 @@
+.CommandList {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--gap-1);
+  align-items: center;
+  padding: var(--gap-1);
+}
+
+.Description {
+  min-width: 12ch;
+}
+
+.Code {
+  min-width: 10ch;
+  padding: 0.5em;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+.Buttons {
+  grid-column: span 2;
+}

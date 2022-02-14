@@ -2,11 +2,12 @@ import { useState } from "react";
 
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";
+import TabList from "../../components/TabList";
 import ProtocolDetails from "./ProtocolDetails";
+import CommandList from "./CommandList";
+
 import { plus } from "../../assets/icons";
 import css from "./css/Protocols.module.css";
-import TabList from "../../components/TabList";
-import CommandList from "./CommandList";
 
 const Protocols = ({ protocols }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -30,7 +31,7 @@ const Protocols = ({ protocols }) => {
         </Button>
       </TabList>
 
-      {protocols?.length > 0 && (
+      {protocols?.[selectedIndex] && (
         <div className={css.ProtocolsList}>
           <ProtocolDetails
             name={protocols[selectedIndex].attributes.name}
@@ -38,6 +39,7 @@ const Protocols = ({ protocols }) => {
           />
 
           <CommandList
+            protocolId={protocols[selectedIndex].id}
             commands={protocols[selectedIndex].attributes.commands.data}
           />
         </div>
