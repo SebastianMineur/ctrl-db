@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "protocols",
+  "info": {
+    "name": "Protocol",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "version": {
+      "type": "string"
+    },
+    "device": {
+      "via": "protocols",
+      "model": "device"
+    },
+    "interface": {
+      "model": "interface"
+    },
+    "commands": {
+      "via": "protocol",
+      "collection": "command"
+    },
+    "details": {
+      "type": "dynamiczone",
+      "components": [
+        "protocol-details.rs232",
+        "protocol-details.tcp-ip"
+      ]
+    }
+  }
+}

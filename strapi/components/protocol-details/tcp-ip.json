@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_protocol_details_tcp_ips",
+  "info": {
+    "name": "TCP/IP",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "ip_address": {
+      "type": "string",
+      "default": "192.168.0.1",
+      "required": true
+    },
+    "subnet_mask": {
+      "type": "string",
+      "default": "255.255.255.0",
+      "required": true
+    },
+    "dhcp": {
+      "type": "boolean"
+    }
+  }
+}

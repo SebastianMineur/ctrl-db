@@ -39,14 +39,14 @@ const HomePage = () => {
 
         {Object.values(searchOptions).length > 0 && (
           <h3 className="font-sm m-0 mb-05 text-center">
-            {results?.devices?.data?.length
-              ? `${results.devices.data.length} result(s)`
+            {results?.devices?.length
+              ? `${results.devices.length} result(s)`
               : `No results`}
           </h3>
         )}
 
-        {results?.devices?.data?.length > 0 && (
-          <DeviceList devices={results.devices.data} />
+        {results?.devices?.length > 0 && (
+          <DeviceList devices={results.devices} />
         )}
       </div>
     </div>

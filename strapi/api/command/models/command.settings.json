@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commands",
+  "info": {
+    "name": "Command",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "protocol": {
+      "via": "commands",
+      "model": "protocol"
+    }
+  }
+}

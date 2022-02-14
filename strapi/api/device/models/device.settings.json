@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "devices",
+  "info": {
+    "name": "Device",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "brand": {
+      "via": "devices",
+      "model": "brand"
+    },
+    "protocols": {
+      "via": "device",
+      "collection": "protocol"
+    },
+    "device_type": {
+      "model": "device-type"
+    }
+  }
+}

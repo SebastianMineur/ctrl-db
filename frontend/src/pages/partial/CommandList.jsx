@@ -60,13 +60,11 @@ const CommandList = ({ protocolId }) => {
 
   return (
     <form className={css.CommandList} onSubmit={handleSubmit}>
-      {commandsQuery.data.commands.data?.map((command) => (
+      {commandsQuery.data.commands?.map((command) => (
         <React.Fragment key={command.id}>
-          <label className="m-0">{command.attributes.description}</label>
+          <label className="m-0">{command.name}</label>
 
-          <p className={cls(css.Code, "radius-sm b-1 m-0")}>
-            {command.attributes.code}
-          </p>
+          <p className={cls(css.Code, "radius-sm b-1 m-0")}>{command.code}</p>
         </React.Fragment>
       ))}
 

@@ -23,7 +23,7 @@ const Protocols = ({ protocols }) => {
             className="col-primary p-1"
             onClick={() => setSelectedIndex(index)}
           >
-            {protocol.attributes.connection.data.attributes.name}
+            {protocol.interface.name}
           </Button>
         ))}
         <Button className="col-primary px-1" onClick={() => {}}>
@@ -34,13 +34,13 @@ const Protocols = ({ protocols }) => {
       {protocols?.[selectedIndex] && (
         <div className={css.ProtocolsList}>
           <ProtocolDetails
-            name={protocols[selectedIndex].attributes.name}
-            details={protocols[selectedIndex].attributes.details[0]}
+            name={protocols[selectedIndex].version}
+            details={protocols[selectedIndex].details[0]}
           />
 
           <CommandList
             protocolId={protocols[selectedIndex].id}
-            commands={protocols[selectedIndex].attributes.commands.data}
+            commands={protocols[selectedIndex].commands}
           />
         </div>
       )}

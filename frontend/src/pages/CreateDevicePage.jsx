@@ -31,7 +31,8 @@ const CreateDevicePage = () => {
     deviceMutation({
       variables: { model, brand, device_type: type },
       onCompleted(data) {
-        navigate(data.createDevice.data.id);
+        console.log(data);
+        navigate(data.createDevice.device.id);
       },
     });
   };
@@ -79,9 +80,9 @@ const CreateDevicePage = () => {
               }}
             >
               <option value=""></option>
-              {brandsQuery.data?.brands.data.map((brand) => (
+              {brandsQuery.data?.brands.map((brand) => (
                 <option value={brand.id} key={brand.id}>
-                  {brand.attributes.name}
+                  {brand.name}
                 </option>
               ))}
             </select>
@@ -108,9 +109,9 @@ const CreateDevicePage = () => {
               }}
             >
               <option value=""></option>
-              {typesQuery.data?.deviceTypes.data.map((type) => (
+              {typesQuery.data?.deviceTypes.map((type) => (
                 <option value={type.id} key={type.id}>
-                  {type.attributes.name}
+                  {type.name}
                 </option>
               ))}
             </select>

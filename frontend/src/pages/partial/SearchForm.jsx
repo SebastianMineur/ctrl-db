@@ -12,8 +12,8 @@ const SearchForm = ({ onSearch }) => {
   const typesQuery = useQuery(GET_DEVICE_TYPES);
   const brandsQuery = useQuery(GET_BRANDS);
 
-  const typeOptions = typesQuery.data?.deviceTypes.data;
-  const brandOptions = brandsQuery.data?.brands.data;
+  const typeOptions = typesQuery.data?.deviceTypes;
+  const brandOptions = brandsQuery.data?.brands;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +50,7 @@ const SearchForm = ({ onSearch }) => {
           <option value="">Any type</option>
           {typeOptions?.map((deviceType) => (
             <option value={deviceType.id} key={deviceType.id}>
-              {deviceType.attributes.name}
+              {deviceType.name}
             </option>
           ))}
         </select>
@@ -63,7 +63,7 @@ const SearchForm = ({ onSearch }) => {
           <option value="">Any brand</option>
           {brandOptions?.map((brand) => (
             <option value={brand.id} key={brand.id}>
-              {brand.attributes.name}
+              {brand.name}
             </option>
           ))}
         </select>

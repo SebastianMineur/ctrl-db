@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "interfaces",
+  "info": {
+    "name": "Interface"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_protocol_details_rs232s",
+  "info": {
+    "name": "Rs232",
+    "icon": "ad",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "baud_rate": {
+      "type": "integer",
+      "default": 9600,
+      "required": true,
+      "min": 0
+    },
+    "data_bits": {
+      "type": "integer",
+      "default": 8,
+      "required": true,
+      "min": 0
+    },
+    "stop_bits": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 0
+    },
+    "parity": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Even",
+        "Odd"
+      ],
+      "default": "None",
+      "required": true
+    }
+  }
+}

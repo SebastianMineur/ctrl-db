@@ -12,12 +12,10 @@ const DeviceList = ({ devices }) => {
           className={cls(css.SearchResult, "p-1")}
         >
           <div className="flex justify-between">
-            <p className="m-0 font-bold">{device.attributes.model}</p>
-            <p className="m-0">
-              {device.attributes.device_type.data.attributes.name}
-            </p>
+            <p className="m-0 font-bold">{device.model}</p>
+            <p className="m-0">{device.device_type?.name}</p>
           </div>
-          <p className="m-0">{device.attributes.brand.data.attributes.name}</p>
+          <p className="m-0">{device.brand?.name}</p>
         </Link>
       ))}
     </div>

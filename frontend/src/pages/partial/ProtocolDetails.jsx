@@ -9,7 +9,7 @@ const Rs232Details = ({ name, details }) => {
         </div>
         <div>
           <label className="font-xs">Data bits</label>
-          <p className="m-0">{details.data_length}</p>
+          <p className="m-0">{details.data_bits}</p>
         </div>
         <div>
           <label className="font-xs">Stop bits</label>
