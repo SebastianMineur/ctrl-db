@@ -21,7 +21,7 @@ const CreateType = ({ onCancel, onCreate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      query.data.deviceTypes.data.some((b) => {
+      query.data.deviceTypes.data?.some((b) => {
         return b.attributes.name.toLowerCase() == typeName.toLowerCase();
       })
     ) {

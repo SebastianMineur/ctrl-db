@@ -11,9 +11,11 @@ export const GET_BRANDS = gql`
 
 export const CREATE_BRAND = gql`
   mutation CreateBrand($name: String!) {
-    createBrand(data: { name: $name }) {
-      id
-      name
+    createBrand(input: { data: { name: $name } }) {
+      brand {
+        id
+        name
+      }
     }
   }
 `;

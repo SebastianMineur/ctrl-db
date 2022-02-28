@@ -18,7 +18,7 @@ const CreateBrand = ({ onCancel, onCreate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      query.data.brands.data.some((b) => {
+      query.data.brands.data?.some((b) => {
         return b.attributes.name.toLowerCase() == brandName.toLowerCase();
       })
     ) {
