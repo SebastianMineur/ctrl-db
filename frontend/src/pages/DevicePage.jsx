@@ -24,7 +24,10 @@ const DevicePage = () => {
       </span>
 
       <h3 className="mb-05">Protocols</h3>
-      <ProtocolsView protocols={deviceQuery.data.device.protocols} />
+      <ProtocolsView
+        deviceId={id}
+        protocols={deviceQuery.data.device.protocols}
+      />
     </div>
   );
 };
