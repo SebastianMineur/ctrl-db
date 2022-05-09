@@ -42,10 +42,12 @@ const Navmenu = ({ onClose }) => {
         <Icon icon={home} size="1.25em" />
       </NavLink>
 
-      <NavLink to="device">
-        Create device
-        <Icon icon={plus} size="1.25em" />
-      </NavLink>
+      {currentUser && (
+        <NavLink to="device">
+          Create device
+          <Icon icon={plus} size="1.25em" />
+        </NavLink>
+      )}
 
       <hr />
 

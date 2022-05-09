@@ -41,6 +41,7 @@ const AuthContextProvider = (props) => {
 
   const values = {
     currentUser,
+    loading,
     login,
     logout,
   };
