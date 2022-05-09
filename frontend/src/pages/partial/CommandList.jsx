@@ -8,6 +8,7 @@ import LoadingPage from "../LoadingPage";
 import Spinner from "../../components/Spinner";
 import Alert from "../../components/Alert";
 
+import { useAuthContext } from "../../contexts/AuthContext";
 import {
   CREATE_COMMAND,
   GET_COMMANDS_BY_PROTOCOL,
@@ -25,6 +26,7 @@ const hexToAscii = (hex) => {
 };
 
 const CommandList = ({ protocolId }) => {
+  const { currentUser } = useAuthContext();
   const descRef = useRef();
   const codeRef = useRef();
   const [submitting, setSubmitting] = useState(false);
@@ -68,43 +70,47 @@ const CommandList = ({ protocolId }) => {
         </React.Fragment>
       ))}
 
-      <Input
-        className={cls(css.Description, "bg-white")}
-        placeholder="Description"
-        size="1"
-        required
-        ref={descRef}
-        disabled={submitting}
-      />
+      {currentUser && (
+        <>
+          <Input
+            className={cls(css.Description, "bg-white")}
+            placeholder="Description"
+            size="1"
+            required
+            ref={descRef}
+            disabled={submitting}
+          />
 
-      <Input
-        className="bg-white font-mono"
-        placeholder="Code"
-        size="1"
-        required
-        ref={codeRef}
-        disabled={submitting}
-      />
+          <Input
+            className="bg-white font-mono"
+            placeholder="Code"
+            size="1"
+            required
+            ref={codeRef}
+            disabled={submitting}
+          />
 
-      {submitError && (
-        <div className={cls(css.Buttons)}>
-          <Alert icon={alert} color="danger">
-            <p>{submitError}</p>
-          </Alert>
-        </div>
+          {submitError && (
+            <div className={cls(css.Buttons)}>
+              <Alert icon={alert} color="danger">
+                <p>{submitError}</p>
+              </Alert>
+            </div>
+          )}
+
+          <div className={cls(css.Buttons, "flex justify-center gap-1")}>
+            <Button
+              type="submit"
+              variant="filled"
+              color="success"
+              disabled={submitting}
+            >
+              {submitting && <Spinner />}
+              Submit
+            </Button>
+          </div>
+        </>
       )}
-
-      <div className={cls(css.Buttons, "flex justify-center gap-1")}>
-        <Button
-          type="submit"
-          variant="filled"
-          color="success"
-          disabled={submitting}
-        >
-          {submitting && <Spinner />}
-          Submit
-        </Button>
-      </div>
     </form>
   );
 };

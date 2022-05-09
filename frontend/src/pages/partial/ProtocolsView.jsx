@@ -8,11 +8,13 @@ import ProtocolDetails from "./ProtocolDetails";
 import CreateProtocol from "./CreateProtocol";
 import CommandList from "./CommandList";
 
+import { useAuthContext } from "../../contexts/AuthContext";
 import { plus } from "../../assets/icons";
 import css from "./css/Protocols.module.css";
 import { GET_PROTOCOLS_FROM_DEVICE } from "../../queries/protocols";
 
 const Protocols = ({ deviceId }) => {
+  const { currentUser } = useAuthContext();
   const protocolsQuery = useQuery(GET_PROTOCOLS_FROM_DEVICE, {
     variables: { device: Number(deviceId) },
   });
@@ -33,12 +35,15 @@ const Protocols = ({ deviceId }) => {
               {protocol.interface.name}
             </Button>
           ))}
-        <Button
-          className="col-primary px-1"
-          onClick={() => setSelectedIndex(protocols?.length ?? 0)}
-        >
-          <Icon icon={plus} size="1.5em" className="" />
-        </Button>
+
+        {currentUser && (
+          <Button
+            className="col-primary px-1"
+            onClick={() => setSelectedIndex(protocols?.length ?? 0)}
+          >
+            <Icon icon={plus} size="1.5em" className="" />
+          </Button>
+        )}
       </TabList>
 
       <div className={css.ProtocolsList}>
