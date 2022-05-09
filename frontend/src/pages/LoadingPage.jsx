@@ -1,5 +1,5 @@
 import Spinner from "../components/Spinner";
-import * as cls from "classnames";
+import cls from "classnames";
 import css from "./css/LoadingPage.module.css";
 
 const LoadingPage = () => {

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import * as cls from "classnames";
+import cls from "classnames";
 import css from "./css/Modal.module.css";
 
 const Modal = ({ children, className, onClick, ...props }) => {

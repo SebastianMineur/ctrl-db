@@ -1,4 +1,4 @@
-import * as cls from "classnames";
+import cls from "classnames";
 import colors from "../util/colors";
 import css from "./css/Button.module.css";
 

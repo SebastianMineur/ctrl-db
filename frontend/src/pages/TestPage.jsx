@@ -1,5 +1,5 @@
 import Icon from "../components/Icon";
-import * as cls from "classnames";
+import cls from "classnames";
 
 import * as icons from "../assets/icons";
 import css from "./css/TestPage.module.css";

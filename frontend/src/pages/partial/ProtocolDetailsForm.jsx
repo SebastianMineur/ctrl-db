@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as cls from "classnames";
+import cls from "classnames";
 
 import Input from "../../components/Input";
 

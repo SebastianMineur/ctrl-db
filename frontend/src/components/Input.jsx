@@ -1,5 +1,5 @@
 import React from "react";
-import * as cls from "classnames";
+import cls from "classnames";
 import css from "./css/Input.module.css";
 
 const Input = React.forwardRef(({ className, error, ...props }, ref) => {

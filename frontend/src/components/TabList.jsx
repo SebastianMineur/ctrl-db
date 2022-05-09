@@ -1,5 +1,5 @@
 import React from "react";
-import * as cls from "classnames";
+import cls from "classnames";
 import css from "./css/TabList.module.css";
 
 const TabList = ({ children, activeIndex, ...props }) => {

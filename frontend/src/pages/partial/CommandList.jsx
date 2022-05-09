@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import * as cls from "classnames";
+import cls from "classnames";
 
 import Input from "../../components/Input";
 import Button from "../../components/Button";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import * as cls from "classnames";
+import cls from "classnames";
 
 import Button from "../../components/Button";
 import Icon from "../../components/Icon";

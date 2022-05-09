@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import * as cls from "classnames";
+import cls from "classnames";
 import css from "./css/DeviceList.module.css";
 
 const DeviceList = ({ devices }) => {
