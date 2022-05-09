@@ -3,3 +3,13 @@
   background: #24292f;
   color: white;
 }
+
+.header:hover {
+  text-decoration: none;
+}
+
+.header h1 {
+  color: white;
+  font-size: var(--font-lg);
+  margin: 0;
+}
