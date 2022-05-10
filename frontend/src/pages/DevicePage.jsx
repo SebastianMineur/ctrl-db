@@ -1,12 +1,14 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import LoadingPage from "./LoadingPage";
 import ProtocolsView from "./partial/ProtocolsView";
 import { GET_DEVICE_FROM_ID } from "../queries/devices";
+import { useAuthContext } from "../contexts/AuthContext";
 
 const DevicePage = () => {
   const { id } = useParams();
+  const { currentUser } = useAuthContext();
   const deviceQuery = useQuery(GET_DEVICE_FROM_ID, { variables: { id } });
 
   if (deviceQuery.loading) return <LoadingPage />;
@@ -24,10 +26,17 @@ const DevicePage = () => {
       </span>
 
       <h3 className="mb-05">Protocols</h3>
-      <ProtocolsView
-        deviceId={id}
-        protocols={deviceQuery.data.device.protocols}
-      />
+      {!currentUser && !deviceQuery.data.device.protocols?.length > 0 ? (
+        <p className="m-0">
+          No protocols added for this device. <Link to="/login">Log in</Link> to
+          contribute.
+        </p>
+      ) : (
+        <ProtocolsView
+          deviceId={id}
+          protocols={deviceQuery.data.device.protocols}
+        />
+      )}
     </div>
   );
 };

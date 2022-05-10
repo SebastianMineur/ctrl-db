@@ -15,6 +15,7 @@ import {
 } from "../../queries/commands";
 import css from "./css/CommandList.module.css";
 import { alert } from "../../assets/icons";
+import { Link } from "react-router-dom";
 
 const hexToAscii = (hex) => {
   const arr = [];
@@ -58,7 +59,14 @@ const CommandList = ({ protocolId }) => {
   };
 
   if (commandsQuery.loading) return <LoadingPage />;
-  if (!commandsQuery.data) return <p className="m-0">No commands added</p>;
+
+  if (!currentUser && !commandsQuery.data.commands?.length)
+    return (
+      <p className="m-1">
+        No commands added for this protocol. <Link to="/login">Log in</Link> to
+        contribute.
+      </p>
+    );
 
   return (
     <form className={css.CommandList} onSubmit={handleSubmit}>
