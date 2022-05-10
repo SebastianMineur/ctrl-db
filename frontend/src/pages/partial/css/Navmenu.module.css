@@ -2,6 +2,7 @@
   position: absolute;
   right: var(--gap-1);
   top: calc(100% - var(--gap-1));
+  min-width: 160px;
 }
 
 .Navmenu a,
