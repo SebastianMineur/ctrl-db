@@ -24,18 +24,29 @@ function App() {
 
       <main>
         <Routes>
+          {/* Public routes */}
           <Route path="/" element={<HomePage />} />
+          <Route path="device/:id" element={<DevicePage />} />
+
+          {/* Unauthenticated users */}
+          <Route
+            path="login"
+            element={!currentUser ? <LoginPage /> : <Navigate to="/" />}
+          />
           <Route
             path="register"
             element={!currentUser ? <RegisterPage /> : <Navigate to="/" />}
           />
+
+          {/* Authenticated users */}
           <Route
             path="device"
             element={currentUser ? <NewDevicePage /> : <Navigate to="/" />}
           />
-          <Route path="device/:id" element={<DevicePage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="test" element={<TestPage />} />
+          <Route
+            path="test"
+            element={currentUser ? <TestPage /> : <Navigate to="/" />}
+          />
         </Routes>
 
         <footer>&copy; 2021 Sebastian Mineur</footer>
