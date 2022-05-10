@@ -12,7 +12,7 @@ module.exports = ({ env }) => ({
         password: env("DATABASE_PASSWORD", "postgres"),
         ssl: env.bool("DATABASE_SSL", false)
           ? {
-              rejectUnauthorized: true,
+              rejectUnauthorized: false,
             }
           : false,
       },
