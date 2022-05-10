@@ -8,10 +8,7 @@ const TabList = ({ children, activeIndex, ...props }) => {
       {React.Children.toArray(children).map((child, index) => (
         <li
           key={index}
-          className={cls(
-            index == activeIndex && "bg-white",
-            "inline-flex b-1 bb-0"
-          )}
+          className={cls(css.Tab, index == activeIndex && "bg-white")}
         >
           {child}
         </li>

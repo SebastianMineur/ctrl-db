@@ -1,10 +1,16 @@
 .TabList {
-  margin: 0;
-  padding: 0;
   display: flex;
+  margin: 0;
+  margin-bottom: -1px;
+  padding: 0;
 }
 
-.TabList > * {
+.Tab {
+  display: inline-flex;
+  margin-right: -1px;
+
+  border: var(--border);
+  border-bottom: none;
   border-top-left-radius: calc(var(--border-radius) / 2);
   border-top-right-radius: calc(var(--border-radius) / 2);
 }
