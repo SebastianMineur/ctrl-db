@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import NewDevicePage from "./pages/CreateDevicePage";
 import DevicePage from "./pages/DevicePage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import TestPage from "./pages/TestPage";
 
 import { useAuthContext } from "./contexts/AuthContext";
@@ -24,6 +25,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route
+            path="register"
+            element={!currentUser ? <RegisterPage /> : <Navigate to="/" />}
+          />
           <Route
             path="device"
             element={currentUser ? <NewDevicePage /> : <Navigate to="/" />}
